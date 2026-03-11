@@ -1,0 +1,546 @@
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#0b0b0b;
+color:white;
+}
+
+
+/* ================= HEADER ================= */
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+background:black;
+border-bottom:1px solid #222;
+}
+
+.header-left{
+display:flex;
+gap:55px;
+}
+
+.logo img{
+height:40px;
+}
+
+/* MENU */
+
+.menu{
+display:flex;
+gap:30px;
+}
+
+.menu a{
+color:#d4af37;
+text-decoration:none;
+font-size:16px;
+}
+
+/* HAMBURGUESA */
+
+.menu-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+color:#d4af37;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+url("../img/fondo-muebles.jpg");
+
+background-size:cover;
+background-position:center;
+}
+
+.hero-logo{
+width:320px;
+margin-bottom:20px;
+}
+
+.hero h1{
+color:#d4af37;
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#ccc;
+font-size:18px;
+}
+
+.btn-ver{
+display:inline-block;
+margin-top:25px;
+background:#d4af37;
+color:black;
+padding:14px 30px;
+text-decoration:none;
+font-weight:bold;
+border-radius:4px;
+}
+
+
+/* ================= CATALOGO ================= */
+
+.catalogo{
+padding:80px 40px;
+text-align:center;
+}
+
+.catalogo h2{
+color:#d4af37;
+margin-bottom:40px;
+font-size:36px;
+}
+
+/* FILTROS */
+
+.filtros{
+margin-bottom:40px;
+}
+
+.filtros button{
+background:#222;
+color:white;
+border:none;
+padding:10px 20px;
+margin:5px;
+cursor:pointer;
+border-radius:4px;
+}
+
+.filtros button:hover{
+background:#d4af37;
+color:black;
+}
+
+
+/* GRID PRODUCTOS */
+
+.productos{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+/* TARJETA */
+
+.producto{
+background:#1a1a1a;
+border-radius:12px;
+overflow:hidden;
+cursor:pointer;
+transition:0.3s;
+
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+}
+
+/* IMAGEN TARJETA */
+
+.producto img{
+width:100%;
+height:260px;
+object-fit:cover;
+
+image-rendering:auto;
+backface-visibility:hidden;
+transform:translateZ(0);
+}
+/* TITULO */
+
+.producto h3{
+padding:20px;
+font-size:18px;
+text-align:center;
+min-height:60px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* HOVER */
+
+.producto:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+
+/* ================= MODAL ================= */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+align-items:center;
+justify-content:center;
+z-index:1000;
+}
+
+.modal-contenido{
+background:#111;
+padding:30px;
+border-radius:10px;
+max-width:500px;
+width:90%;
+text-align:center;
+position:relative;
+}
+
+.modal-contenido img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:8px;
+margin-bottom:20px;
+}
+
+.cerrar{
+position:absolute;
+right:20px;
+top:10px;
+font-size:28px;
+cursor:pointer;
+}
+
+.modal button{
+margin-top:20px;
+background:#d4af37;
+border:none;
+padding:12px 25px;
+cursor:pointer;
+font-weight:bold;
+border-radius:4px;
+}
+
+
+/* MINI GALERIA */
+
+.mini-galeria{
+display:flex;
+gap:10px;
+margin-top:15px;
+justify-content:center;
+}
+
+.mini-galeria img{
+width:70px;
+height:70px;
+object-fit:cover;
+cursor:pointer;
+border-radius:5px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+text-align:center;
+padding:30px;
+background:black;
+color:#aaa;
+margin-top:60px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+/* HEADER */
+
+.menu-toggle{
+display:block;
+}
+
+.menu{
+position:absolute;
+top:70px;
+left:0;
+width:100%;
+background:black;
+flex-direction:column;
+padding:20px;
+display:none;
+}
+
+.menu.active{
+display:flex;
+}
+
+.menu a{
+padding:12px 0;
+}
+
+/* HERO */
+
+.hero{
+padding:120px 20px 80px;
+height:auto;
+}
+
+.hero-logo{
+width:200px;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+/* PRODUCTOS */
+
+.productos{
+grid-template-columns:1fr;
+gap:20px;
+}
+
+.producto img{
+height:240px;
+}
+
+}
+/* PROMO CAPSULA */
+
+.promo-pill{
+position:fixed;
+
+top:80px;
+left:50%;
+transform:translateX(-50%);
+
+background:#d4af37;
+color:black;
+
+padding:14px 30px;
+
+border-radius:40px;
+
+display:flex;
+align-items:center;
+gap:15px;
+
+box-shadow:0 8px 25px rgba(0,0,0,0.35);
+
+z-index:2000;
+
+max-width:90%;
+
+/* ANIMACION */
+animation:promoPulse 2.5s ease-in-out infinite;
+
+/* clave para que no toque bordes */
+max-width:90%;
+}
+
+/* TEXTO */
+
+.promo-pill p{
+margin:0;
+font-size:14px;
+font-weight:500;
+}
+
+/* BOTON CERRAR */
+
+.cerrar-promo{
+cursor:pointer;
+font-size:18px;
+font-weight:bold;
+margin-left:10px;
+}
+@media (max-width:768px){
+
+.promo-pill{
+top:100px;
+
+width:92%;
+max-width:92%;
+
+padding:12px 20px;
+
+font-size:13px;
+
+justify-content:center;
+text-align:center;
+}
+
+}
+@keyframes promoPulse {
+
+0%{
+transform:translateX(-50%) scale(1);
+}
+
+50%{
+transform:translateX(-50%) scale(1.04);
+}
+
+100%{
+transform:translateX(-50%) scale(1);
+}
+
+}
+/* BOTONES SOCIALES FLOTANTES */
+
+.social-float{
+position:fixed;
+bottom:20px;
+right:20px;
+
+display:flex;
+flex-direction:column;
+gap:12px;
+
+z-index:3000;
+}
+
+/* BOTONES */
+
+.social-float a{
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:0 6px 20px rgba(0,0,0,0.4);
+
+transition:0.3s;
+}
+
+/* BOTONES SOCIALES */
+
+.social-float{
+position:fixed;
+bottom:20px;
+right:20px;
+
+display:flex;
+flex-direction:column;
+gap:12px;
+
+z-index:3000;
+}
+
+.social-float a{
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:0 6px 20px rgba(0,0,0,0.4);
+
+transition:0.3s;
+}
+
+/* SVG */
+
+.social-float svg{
+width:26px;
+height:26px;
+}
+
+/* WHATSAPP */
+
+.btn-wsp{
+background:#25D366;
+}
+
+/* INSTAGRAM */
+
+.btn-ig{
+background:linear-gradient(
+45deg,
+#f58529,
+#dd2a7b,
+#8134af,
+#515bd4
+);
+}
+
+/* HOVER */
+
+.social-float a:hover{
+transform:scale(1.1);
+}
+@keyframes wspPulse{
+
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+
+}
+
+.btn-wsp{
+background:#25D366;
+animation:wspPulse 2.5s infinite;
+}
+.social-float img{
+width:60px;
+height:60px;
+object-fit:contain;
+}
+@media (max-width:768px){
+
+.social-float{
+bottom:12px;
+right:12px;
+gap:8px;
+}
+
+.social-float a{
+width:44px;
+height:44px;
+}
+
+.social-float img{
+width:45px;
+height:45px;
+}
+
+/* ocultar tooltip en celular */
+
+.social-float a::after{
+display:none;
+}
+
+}
