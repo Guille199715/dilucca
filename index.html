@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DI LUCCA | Catálogo</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="header-left">
+
+<div class="menu-toggle" id="menuToggle">
+☰
+</div>
+
+<div class="logo">
+<img src="img/logo-header.png">
+</div>
+
+</div>
+
+<nav class="menu" id="menu">
+
+<a href="#">Inicio</a>
+<a href="#catalogo">Muebles</a>
+<a href="#">Contacto</a>
+
+</nav>
+
+</header>
+
+
+<div class="promo-pill" id="promoPill">
+
+<p>
+💳 Aceptamos Transferencias y 💵 Pago en efectivo — Siempre al precio publicado
+</p>
+
+<span class="cerrar-promo" id="cerrarPromo">✕</span>
+
+</div>
+
+
+<section class="hero">
+
+<div class="hero-contenido">
+
+<img src="img/logo.png" class="hero-logo">
+
+<h1>Muebles de Diseño</h1>
+
+<p>Calidad, elegancia y estilo para tu hogar</p>
+
+<a href="#catalogo" class="btn-ver">Ver Catálogo</a>
+
+</div>
+
+</section>
+
+
+<section class="catalogo" id="catalogo">
+
+<h2>Nuestros Muebles</h2>
+
+<div class="filtros">
+
+<button data-filtro="todos">Todos</button>
+<button data-filtro="manicura">Manicura</button>
+<button data-filtro="mesas">Mesas</button>
+<button data-filtro="escritorios">Escritorios</button>
+
+</div>
+
+<div class="productos" id="productos"></div>
+
+</section>
+
+
+<div class="modal" id="modalProducto">
+
+<div class="modal-contenido">
+
+<span class="cerrar">&times;</span>
+
+<img id="modalImg">
+
+<h2 id="modalNombre"></h2>
+
+<p><strong>Precio:</strong> <span id="modalPrecio"></span></p>
+<p><strong>Medidas:</strong> <span id="modalMedidas"></span></p>
+
+<p id="modalDetalle"></p>
+
+<div class="mini-galeria" id="miniGaleria"></div>
+
+<button id="btnConsultar">Consultar por WhatsApp</button>
+
+</div>
+
+</div>
+
+
+<!-- BOTONES FLOTANTES -->
+
+<div class="social-float">
+
+<a href="https://wa.me/5493412735681"
+target="_blank"
+class="btn-wsp"
+data-tooltip="Escribinos por WhatsApp">
+
+<img src="img/whatsapp.png" alt="WhatsApp">
+
+</a>
+
+
+<a href="https://instagram.com/muebles_dilucca"
+target="_blank"
+class="btn-ig"
+data-tooltip="Seguinos en Instagram">
+
+<img src="img/instagram.png" alt="Instagram">
+
+</a>
+
+</div>
+
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
