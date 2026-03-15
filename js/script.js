@@ -2,6 +2,7 @@ const productosData = [
 
 {
 nombre:"Mesa Manicura Estándar",
+material:"Melamina MDF 18mm",
 categoria:"manicura",
 precio:"$90.000",
 medidas:"80 x 40 x 80 cm",
@@ -11,13 +12,22 @@ imagenes:["img/mesa1.jpg","img/mesa1-2.jpg"]
 
 {
 nombre:"Mesa Manicura Premium",
+material:"Melamina MDF 18mm",
 categoria:"manicura",
 precio:"$130.000",
 medidas:"110 x 40 x 80 cm",
 detalle:"Diseño moderno, con agregado de cajón, guias teléscopicas y tirador de cristal",
 imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"]
 },
-
+{
+nombre:"Mesa Ratona",
+material:"Melamina MDF 18mm",
+categoria:"mesas",
+precio:"PROXIMAMENTE",
+medidas:"80 x 50 x 45 cm",
+detalle:"Diseño moderno, con superficie de vidrio",
+imagenes:["img/mesa3.jpg","img/mesa3-2.jpg"]
+},
 
 ];
 
@@ -82,6 +92,7 @@ const modal = document.getElementById("modalProducto");
 
 const modalImg = document.getElementById("modalImg");
 const modalNombre = document.getElementById("modalNombre");
+const modalMaterial = document.getElementById("modalMaterial");
 const modalPrecio = document.getElementById("modalPrecio");
 const modalMedidas = document.getElementById("modalMedidas");
 const modalDetalle = document.getElementById("modalDetalle");
@@ -97,6 +108,7 @@ modal.style.display="flex";
 
 modalImg.src = producto.imagenes[0];
 modalNombre.innerText = producto.nombre;
+modalMaterial.innerText = producto.material;
 modalPrecio.innerText = producto.precio;
 modalMedidas.innerText = producto.medidas;
 modalDetalle.innerText = producto.detalle;
