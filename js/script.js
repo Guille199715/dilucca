@@ -9,14 +9,22 @@ medidas:"80 x 40 x 80 cm",
 detalle:"Mesa ideal para salón de belleza con superficie de vidrio",
 imagenes:["img/mesa1.jpg","img/mesa1-2.jpg"]
 },
-
+{
+nombre:"Mesa Manicura Restyling",
+material:"Melamina MDF 18mm",
+categoria:"manicura",
+precio:"PROXIMAMENTE",
+medidas:"80 x 40 x 80 cm",
+detalle:"Rediseño de la Mesa Estándar, ideal para salón de belleza, con superficie de vidrio",
+imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"]
+},
 {
 nombre:"Mesa Manicura Premium",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
 precio:"$130.000",
 medidas:"110 x 40 x 80 cm",
-detalle:"Diseño moderno, con agregado de cajón, guias teléscopicas y tirador de cristal",
+detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal",
 imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"]
 },
 {
@@ -28,12 +36,67 @@ medidas:"80 x 50 x 45 cm",
 detalle:"Diseño moderno, con superficie de vidrio",
 imagenes:["img/mesa3.jpg","img/mesa3-2.jpg"]
 },
+{
+nombre:"Mesa de Luz",
+material:"Melamina MDF 18mm",
+categoria:"mesas",
+precio:"PROXIMAMENTE",
+medidas:"43 x 40 x 58 cm",
+detalle:"Diseño robusto con patas regulables en altura y un cajón",
+imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"]
+},
+
+];
+const reseñasData = [
+
+{
+nombre:"Martin",
+mensaje:"Muy buena!🙌",
+ubicacion:"San Lorenzo, Santa Fe"
+},
+{
+nombre:"Cintia",
+mensaje:"La verdad hermosa la mesa! 💯",
+ubicacion:"Granadero Baigorria, Santa Fe"
+}
 
 ];
 
+const contenedorReseñas = document.getElementById("reseñasContainer");
 
+reseñasData.forEach(r => {
+
+const card = document.createElement("div");
+card.classList.add("reseña");
+
+card.innerHTML = `
+<h3>${r.nombre}</h3>
+<p>"${r.mensaje}"</p>
+<span>${r.ubicacion}</span>
+`;
+
+contenedorReseñas.appendChild(card);
+
+});
+let scrollPos = 0;
+
+setInterval(() => {
+
+scrollPos += 320;
+
+if(scrollPos >= contenedorReseñas.scrollWidth){
+scrollPos = 0;
+}
+
+contenedorReseñas.scrollTo({
+left: scrollPos,
+behavior: "smooth"
+});
+
+}, 3000);
 const contenedor = document.getElementById("productos");
 
+// ================= CARGAR PRODUCTOS =================
 
 function cargarProductos(lista){
 
@@ -45,9 +108,19 @@ const card = document.createElement("div");
 card.classList.add("producto");
 
 card.innerHTML=`
-<img src="${producto.imagenes[0]}">
+<img src="${producto.imagenes[0]}" onerror="this.src='img/placeholder.jpg'">
 <h3>${producto.nombre}</h3>
+<p style="text-align:center;color:#d4af37;margin-bottom:15px;">
+${producto.precio}
+</p>
 `;
+
+card.style.opacity = "0";
+
+setTimeout(()=>{
+card.style.opacity = "1";
+card.style.transition = "0.4s";
+},50);
 
 card.onclick=()=>abrirModal(producto);
 
@@ -57,10 +130,9 @@ contenedor.appendChild(card);
 
 }
 
-
 cargarProductos(productosData);
 
-
+// ================= FILTROS =================
 
 const botonesFiltro = document.querySelectorAll(".filtros button");
 
@@ -68,25 +140,23 @@ botonesFiltro.forEach(btn=>{
 
 btn.onclick=()=>{
 
+botonesFiltro.forEach(b=>b.classList.remove("activo"));
+btn.classList.add("activo");
+
 const filtro = btn.dataset.filtro;
 
 if(filtro==="todos"){
-
 cargarProductos(productosData);
-
 }else{
-
 const filtrados = productosData.filter(p=>p.categoria===filtro);
-
 cargarProductos(filtrados);
-
 }
 
 };
 
 });
 
-
+// ================= MODAL =================
 
 const modal = document.getElementById("modalProducto");
 
@@ -101,10 +171,12 @@ const miniGaleria = document.getElementById("miniGaleria");
 
 const btnConsultar = document.getElementById("btnConsultar");
 
+// abrir modal
 
 function abrirModal(producto){
 
 modal.style.display="flex";
+document.body.style.overflow = "hidden";
 
 modalImg.src = producto.imagenes[0];
 modalNombre.innerText = producto.nombre;
@@ -121,18 +193,25 @@ const mini=document.createElement("img");
 mini.src=img;
 
 mini.onclick=()=>{
-
 modalImg.src=img;
-
 };
 
 miniGaleria.appendChild(mini);
 
 });
 
+// WhatsApp PRO
+
 btnConsultar.onclick=()=>{
 
-const mensaje="Hola, quiero consultar por: "+producto.nombre;
+const mensaje = `Hola! 👋 
+Quiero consultar por:
+
+🪑 ${producto.nombre}
+💰 ${producto.precio}
+📏 ${producto.medidas}
+
+¿Está disponible?`;
 
 const url="https://wa.me/5493412735681?text="+encodeURIComponent(mensaje);
 
@@ -142,20 +221,33 @@ window.open(url,"_blank");
 
 }
 
+// cerrar con X
 
 document.querySelector(".cerrar").onclick=()=>{
-
 modal.style.display="none";
-
+document.body.style.overflow = "auto";
 };
+
+// cerrar clic afuera
+
+modal.addEventListener("click", (e) => {
+if(e.target === modal){
+modal.style.display = "none";
+document.body.style.overflow = "auto";
+}
+});
+
+// ================= MENU MOBILE =================
+
 const menuToggle = document.getElementById("menuToggle");
 const menu = document.getElementById("menu");
 
 menuToggle.addEventListener("click", () => {
-
 menu.classList.toggle("active");
-
 });
+
+// ================= PROMO =================
+
 const promo = document.getElementById("promoPill");
 const cerrarPromo = document.getElementById("cerrarPromo");
 
