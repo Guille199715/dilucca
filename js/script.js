@@ -45,6 +45,15 @@ medidas:"43 x 40 x 58 cm",
 detalle:"Diseño robusto con patas regulables en altura y un cajón",
 imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"]
 },
+{
+nombre:"Juguetero Organizador",
+material:"Melamina MDF 18mm",
+categoria:"escritorio",
+precio:"PROXIMAMENTE",
+medidas:"70 x 30 x 100 cm",
+detalle:"Diseño con 2 baules móviles y tiradores personalizables",
+imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"]
+},
 
 ];
 const reseñasData = [
