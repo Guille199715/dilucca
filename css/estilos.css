@@ -646,3 +646,251 @@ border-radius:10px;
 object-fit:cover;
 box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
+
+/* CONTENEDOR AUTOCOMPLETE */
+.pac-container{
+background:#111;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+border:1px solid #222;
+font-family:Arial, sans-serif;
+z-index:9999 !important;
+margin-top:5px;
+}
+
+/* CADA ITEM */
+.pac-item{
+padding:12px;
+color:#ccc;
+cursor:pointer;
+border-bottom:1px solid #222;
+}
+
+/* HOVER */
+.pac-item:hover{
+background:#d4af37;
+color:black;
+transition:0.2s;
+}
+
+/* TEXTO PRINCIPAL */
+.pac-item-query{
+color:#fff;
+font-weight:bold;
+}
+
+/* ICONO (lo ocultamos) */
+.pac-icon{
+display:none;
+}
+
+/* ÚLTIMO ITEM SIN BORDE */
+.pac-item:last-child{
+border-bottom:none;
+}
+#direccionCliente{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #333;
+background:#1a1a1a;
+color:white;
+outline:none;
+margin-bottom:15px;
+font-size:14px;
+}
+
+#direccionCliente:focus{
+border:1px solid #d4af37;
+}
+.envios{
+transition:0.3s;
+background:#111;
+padding:25px;
+border-radius:12px;
+max-width:400px;
+margin:40px auto;
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+border:1px solid #222;
+text-align:center;
+}
+
+.envios h3{
+color:#d4af37;
+margin-bottom:15px;
+}
+#calcularEnvio{
+width:100%;
+padding:12px;
+background:#d4af37;
+color:black;
+border:none;
+border-radius:8px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+#calcularEnvio:hover{
+background:#e5c158;
+transform:translateY(-3px);
+}
+#resultadoEnvio{
+margin-top:15px;
+font-size:14px;
+color:#ccc;
+line-height:1.5;
+}
+/* RESULTADO BONITO */
+
+.resultado-box{
+background:#1a1a1a;
+border-radius:10px;
+padding:15px;
+margin-top:15px;
+border:1px solid #222;
+}
+
+.fila{
+display:flex;
+justify-content:space-between;
+margin-bottom:8px;
+color:#ccc;
+font-size:14px;
+}
+
+.fila:last-child{
+margin-bottom:0;
+}
+
+.precio{
+color:#d4af37;
+font-size:16px;
+}
+/* ================= MOBILE PRO COMPLETO ================= */
+
+@media (max-width:768px){
+
+/* HERO */
+.hero{
+height:auto;
+padding:100px 20px 60px;
+}
+
+.hero h1{
+font-size:26px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.hero-logo{
+width:160px;
+}
+
+
+/* PRODUCTOS */
+.productos{
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.producto{
+border-radius:10px;
+}
+
+.producto img{
+height:200px;
+}
+
+.producto h3{
+font-size:16px;
+padding:15px;
+}
+
+
+/* MODAL */
+.modal-contenido{
+width:95%;
+padding:20px;
+max-height:90vh;
+overflow-y:auto;
+}
+
+.modal-contenido img{
+height:200px;
+}
+
+.modal button{
+width:100%;
+padding:14px;
+}
+
+
+/* BOTONES */
+.filtros button{
+padding:12px;
+font-size:14px;
+}
+
+.btn-ver{
+width:100%;
+padding:14px;
+}
+
+
+/* ENVÍOS */
+.envios{
+width:92%;
+margin:30px auto;
+padding:20px;
+}
+
+#direccionCliente{
+font-size:16px;
+padding:12px;
+}
+
+#calcularEnvio{
+padding:14px;
+font-size:15px;
+}
+
+.resultado-box{
+padding:12px;
+}
+
+.precio{
+font-size:16px;
+}
+
+
+/* RESEÑAS */
+.reseña{
+min-width:260px;
+padding:15px;
+}
+
+.reseña p{
+font-size:13px;
+}
+
+
+/* BOTONES FLOTANTES */
+.social-float a{
+width:50px;
+height:50px;
+}
+
+.social-float img{
+width:40px;
+height:40px;
+}
+
+}
+
+/* EVITA ZOOM EN INPUT (IPHONE) */
+input{
+font-size:16px;
+}
