@@ -1,3 +1,5 @@
+let autocomplete = null;
+
 const productosData = [
 
 {
@@ -263,3 +265,101 @@ const cerrarPromo = document.getElementById("cerrarPromo");
 cerrarPromo.addEventListener("click", () => {
 promo.style.display = "none";
 });
+// ================= ENVÍOS =================
+
+const origen = "Piedrabuena 2168, S2126 Alvear, Santa Fe, Argentina";
+
+document.getElementById("calcularEnvio").addEventListener("click", () => {
+
+let destino = document.getElementById("direccionCliente").value;
+
+// usar autocomplete solo si existe
+if (typeof autocomplete !== "undefined" && autocomplete) {
+
+const place = autocomplete.getPlace();
+
+if(place && place.formatted_address){
+destino = place.formatted_address;
+}
+
+}
+
+// validar
+if(!destino){
+document.getElementById("resultadoEnvio").innerHTML =
+"<span style='color:red;'>Ingresá una dirección válida</span>";
+return;
+}
+
+const service = new google.maps.DistanceMatrixService();
+
+service.getDistanceMatrix({
+origins: [origen],
+destinations: [destino],
+travelMode: 'DRIVING',
+}, (response, status) => {
+
+if (status !== "OK") {
+document.getElementById("resultadoEnvio").innerHTML =
+"<span style='color:red;'>Error al calcular distancia</span>";
+return;
+}
+
+const data = response.rows[0].elements[0];
+
+if(data.status !== "OK"){
+document.getElementById("resultadoEnvio").innerHTML =
+"<span style='color:red;'>No se pudo calcular</span>";
+return;
+}
+
+const distanciaTexto = data.distance.text;
+const distanciaKm = data.distance.value / 1000;
+
+// tabla de precios
+// 💰 NUEVA TABLA DE PRECIOS
+
+let costo = 10000; // base
+
+if (distanciaKm <= 10) costo += 7000;
+else if (distanciaKm <= 20) costo += 14000;
+else if (distanciaKm <= 30) costo += 21000;
+else if (distanciaKm <= 40) costo += 28000;
+else if (distanciaKm <= 50) costo += 35000;
+else if (distanciaKm <= 60) costo += 42000;
+else if (distanciaKm <= 70) costo += 49000;
+else if (distanciaKm <= 80) costo += 56000;
+else {
+document.getElementById("resultadoEnvio").innerHTML = `
+<div class="resultado-box">
+<strong style="color:red;">
+🚫 No realizamos envíos a esa distancia.<br>
+Escribinos por WhatsApp y vemos una solución 😉
+</strong>
+</div>
+`;
+return;
+}
+// resultado visual
+document.getElementById("resultadoEnvio").innerHTML = `
+<div class="resultado-box">
+<div class="fila" style="justify-content:center;">
+<strong class="precio">🚚 Envío: $${costo}</strong>
+</div>
+</div>
+`;
+});
+
+});
+function iniciarAutocomplete(){
+
+const input = document.getElementById("direccionCliente");
+
+autocomplete = new google.maps.places.Autocomplete(input, {
+types: ["address"],
+componentRestrictions: { country: "ar" }
+});
+
+}
+
+window.addEventListener("load", iniciarAutocomplete);
