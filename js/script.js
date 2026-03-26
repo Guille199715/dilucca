@@ -50,11 +50,20 @@ imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"]
 {
 nombre:"Juguetero Organizador",
 material:"Melamina MDF 18mm",
-categoria:"escritorio",
+categoria:"escritorios",
 precio:"PROXIMAMENTE",
 medidas:"70 x 30 x 100 cm",
 detalle:"Diseño con 2 baules móviles y tiradores personalizables",
 imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"]
+},
+{
+nombre:"Tocador Hollywood",
+material:"Melamina MDF 18mm",
+categoria:"escritorios",
+precio:"PROXIMAMENTE",
+medidas:"85 x 45 x 145 cm",
+detalle:"Diseño ultra estético, con doble cajón con guias telescopicas y tirador de cristal, luces embutidas y comando minimalista para conectar tus aparatos favoritos",
+imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
 },
 
 ];
@@ -81,6 +90,7 @@ const card = document.createElement("div");
 card.classList.add("reseña");
 
 card.innerHTML = `
+
 <h3>${r.nombre}</h3>
 <p>"${r.mensaje}"</p>
 <span>${r.ubicacion}</span>
@@ -118,8 +128,8 @@ lista.forEach(producto=>{
 const card = document.createElement("div");
 card.classList.add("producto");
 
-card.innerHTML=`
-<img src="${producto.imagenes[0]}" onerror="this.src='img/placeholder.jpg'">
+card.innerHTML=` <img src="${producto.imagenes[0]}" onerror="this.src='img/placeholder.jpg'">
+
 <h3>${producto.nombre}</h3>
 <p style="text-align:center;color:#d4af37;margin-bottom:15px;">
 ${producto.precio}
@@ -215,7 +225,7 @@ miniGaleria.appendChild(mini);
 
 btnConsultar.onclick=()=>{
 
-const mensaje = `Hola! 👋 
+const mensaje = `Hola! 👋
 Quiero consultar por:
 
 🪑 ${producto.nombre}
@@ -316,10 +326,7 @@ return;
 const distanciaTexto = data.distance.text;
 const distanciaKm = data.distance.value / 1000;
 
-// tabla de precios
-// 💰 NUEVA TABLA DE PRECIOS
-
-let costo = 10000; // base
+let costo = 10000;
 
 if (distanciaKm <= 10) costo += 7000;
 else if (distanciaKm <= 20) costo += 14000;
@@ -331,6 +338,7 @@ else if (distanciaKm <= 70) costo += 49000;
 else if (distanciaKm <= 80) costo += 56000;
 else {
 document.getElementById("resultadoEnvio").innerHTML = `
+
 <div class="resultado-box">
 <strong style="color:red;">
 🚫 No realizamos envíos a esa distancia.<br>
@@ -340,17 +348,20 @@ Escribinos por WhatsApp y vemos una solución 😉
 `;
 return;
 }
-// resultado visual
+
 document.getElementById("resultadoEnvio").innerHTML = `
+
 <div class="resultado-box">
 <div class="fila" style="justify-content:center;">
 <strong class="precio">🚚 Envío: $${costo}</strong>
 </div>
 </div>
 `;
+
 });
 
 });
+
 function iniciarAutocomplete(){
 
 const input = document.getElementById("direccionCliente");
