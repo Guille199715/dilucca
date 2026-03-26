@@ -15,7 +15,7 @@ imagenes:["img/mesa1.jpg","img/mesa1-2.jpg"]
 nombre:"Mesa Manicura Restyling",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
-precio:"PROXIMAMENTE",
+precio:"$95.000",
 medidas:"80 x 40 x 80 cm",
 detalle:"Rediseño de la Mesa Estándar, ideal para salón de belleza, con superficie de vidrio",
 imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"]
@@ -33,7 +33,7 @@ imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"]
 nombre:"Mesa Ratona",
 material:"Melamina MDF 18mm",
 categoria:"mesas",
-precio:"PROXIMAMENTE",
+precio:"$75.000",
 medidas:"80 x 50 x 45 cm",
 detalle:"Diseño moderno, con superficie de vidrio",
 imagenes:["img/mesa3.jpg","img/mesa3-2.jpg"]
@@ -42,7 +42,7 @@ imagenes:["img/mesa3.jpg","img/mesa3-2.jpg"]
 nombre:"Mesa de Luz",
 material:"Melamina MDF 18mm",
 categoria:"mesas",
-precio:"PROXIMAMENTE",
+precio:"$80.000",
 medidas:"43 x 40 x 58 cm",
 detalle:"Diseño robusto con patas regulables en altura y un cajón",
 imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"]
@@ -224,7 +224,7 @@ Quiero consultar por:
 
 ¿Está disponible?`;
 
-const url="https://wa.me/5493412735681?text="+encodeURIComponent(mensaje);
+const url="https://wa.me/5493416930606?text="+encodeURIComponent(mensaje);
 
 window.open(url,"_blank");
 
