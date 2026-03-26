@@ -2,192 +2,240 @@
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DI LUCCA | Catálogo</title>
-<link rel="stylesheet" href="css/estilos.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DI LUCCA | Catálogo</title>
+  <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
 
-<header class="header">
+  <!-- ================= HEADER ================= -->
 
-<div class="header-left">
+  <header class="header">
 
-<div class="menu-toggle" id="menuToggle">
-☰
-</div>
+    <div class="header-left">
 
-<div class="logo">
-<img src="img/logo-header.png">
-</div>
+      <div class="menu-toggle" id="menuToggle">
+        ☰
+      </div>
 
-</div>
+      <div class="logo">
+        <img src="img/logo-header.png" alt="Logo DI LUCCA">
+      </div>
 
-<nav class="menu" id="menu">
+    </div>
 
-<a href="#">Inicio</a>
-<a href="#catalogo">Muebles</a>
-<a href="#">Contacto</a>
+    <nav class="menu" id="menu">
+      <a href="#">Inicio</a>
+      <a href="#catalogo">Muebles</a>
+      <a href="#">Contacto</a>
+    </nav>
 
-</nav>
+  </header>
 
-</header>
+  <!-- ================= PROMO ================= -->
 
+  <div class="promo-pill" id="promoPill">
+    <p>
+      💳 Aceptamos Transferencias y 💵 Pago en efectivo — Siempre al precio publicado
+    </p>
+    <span class="cerrar-promo" id="cerrarPromo">✕</span>
+  </div>
 
-<div class="promo-pill" id="promoPill">
+  <!-- ================= HERO ================= -->
 
-<p>
-💳 Aceptamos Transferencias y 💵 Pago en efectivo — Siempre al precio publicado
-</p>
+  <section class="hero">
 
-<span class="cerrar-promo" id="cerrarPromo">✕</span>
+    <div class="hero-contenido">
 
-</div>
+      <img src="img/logo.png" class="hero-logo" alt="Logo DI LUCCA">
 
+      <h1>Muebles de Diseño</h1>
+      <p>Calidad, elegancia y estilo para tu hogar</p>
 
-<section class="hero">
+      <a href="#catalogo" class="btn-ver">Ver Catálogo</a>
 
-<div class="hero-contenido">
+      <!-- BOTÓN ENVÍO -->
+      <a href="#envios" class="btn-envio">Consultar Envío</a>
 
-<img src="img/logo.png" class="hero-logo">
+    </div>
 
-<h1>Muebles de Diseño</h1>
+  </section>
 
-<p>Calidad, elegancia y estilo para tu hogar</p>
+  <!-- ================= RESEÑAS ================= -->
 
-<a href="#catalogo" class="btn-ver">Ver Catálogo</a>
+  <section class="reseñas">
 
-</div>
+    <h2>Clientes que ya confiaron en nosotros</h2>
 
-</section>
-<section class="reseñas">
+    <div class="reseñas-container" id="reseñasContainer"></div>
 
-<h2>Clientes que ya confiaron en nosotros</h2>
+  </section>
 
-<div class="reseñas-container" id="reseñasContainer"></div>
+  <!-- ================= NOSOTROS ================= -->
 
-</section>
+  <section class="nosotros">
 
-<section class="nosotros">
+    <div class="nosotros-container">
 
-<div class="nosotros-container">
+      <div class="nosotros-texto">
 
-<div class="nosotros-texto">
+        <h2>Quiénes somos</h2>
 
-<h2>Quiénes somos</h2>
+        <p>
+          En <strong>DI LUCCA</strong> nos especializamos en el diseño y fabricación de muebles modernos,
+          pensados para combinar estética, funcionalidad y durabilidad.
+        </p>
 
-<p>
-En <strong>DI LUCCA</strong> nos especializamos en el diseño y fabricación de muebles modernos, pensados para combinar estética, funcionalidad y durabilidad.
-</p>
+        <p>
+          Cada producto está hecho con materiales de calidad y cuidado en cada detalle,
+          buscando ofrecer soluciones prácticas y elegantes para el hogar y espacios de trabajo.
+        </p>
 
-<p>
-Cada producto está hecho con materiales de calidad y cuidado en cada detalle, buscando ofrecer soluciones prácticas y elegantes para el hogar y espacios de trabajo.
-</p>
+        <p>
+          Trabajamos de manera directa con nuestros clientes, asegurando una atención personalizada
+          y precios justos.
+        </p>
 
-<p>
-Trabajamos de manera directa con nuestros clientes, asegurando una atención personalizada y precios justos.
-</p>
-<p style="color:#d4af37;font-weight:bold;">
-✔ Calidad garantizada  
-✔ Diseño moderno  
-✔ Atención personalizada  
-</p>
-</div>
+        <p style="color:#d4af37;font-weight:bold;">
+          ✔ Calidad garantizada<br>
+          ✔ Diseño moderno<br>
+          ✔ Atención personalizada
+        </p>
 
-<div class="nosotros-img">
+      </div>
 
-<video autoplay muted loop playsinline class="video-nosotros">
-<source src="img/video-taller.mp4" type="video/mp4">
-Tu navegador no soporta video.
-</video>
+      <div class="nosotros-img">
 
-</div>
+        <video autoplay muted loop playsinline class="video-nosotros">
+          <source src="img/video-taller.mp4" type="video/mp4">
+          Tu navegador no soporta video.
+        </video>
 
-</div>
+      </div>
 
-</section>
+    </div>
 
-<section class="catalogo" id="catalogo">
+  </section>
 
-<h2>Nuestros Muebles</h2>
+  <!-- ================= CATALOGO ================= -->
 
-<div class="filtros">
+  <section class="catalogo" id="catalogo">
 
-<button data-filtro="todos">Todos</button>
-<button data-filtro="manicura">Manicura</button>
-<button data-filtro="mesas">Mesas</button>
-<button data-filtro="escritorios">Escritorios</button>
+    <h2>Nuestros Muebles</h2>
 
-</div>
+    <div class="filtros">
+      <button data-filtro="todos">Todos</button>
+      <button data-filtro="manicura">Manicura</button>
+      <button data-filtro="mesas">Mesas</button>
+      <button data-filtro="escritorios">Escritorios</button>
+    </div>
 
-<div class="productos" id="productos"></div>
+    <div class="productos" id="productos"></div>
 
-</section>
+  </section>
 
+  <!-- ================= MODAL ================= -->
 
-<div class="modal" id="modalProducto">
+  <div class="modal" id="modalProducto">
 
-<div class="modal-contenido">
+    <div class="modal-contenido">
 
-<span class="cerrar">&times;</span>
+      <span class="cerrar">×</span>
 
-<img id="modalImg">
+      <img id="modalImg" alt="Producto">
 
-<h2 id="modalNombre"></h2>
-<p><strong>Material:</strong> <span id="modalMaterial"></span></p>
-<p><strong>Precio:</strong> <span id="modalPrecio"></span></p>
-<p><strong>Medidas:</strong> <span id="modalMedidas"></span></p>
+      <h2 id="modalNombre"></h2>
 
-<p id="modalDetalle"></p>
+      <p><strong>Material:</strong> <span id="modalMaterial"></span></p>
+      <p><strong>Precio:</strong> <span id="modalPrecio"></span></p>
+      <p><strong>Medidas:</strong> <span id="modalMedidas"></span></p>
 
-<div class="mini-galeria" id="miniGaleria"></div>
+      <p id="modalDetalle"></p>
 
-<button id="btnConsultar">Consultar por WhatsApp</button>
+      <div class="mini-galeria" id="miniGaleria"></div>
 
-</div>
+      <button id="btnConsultar">Consultar por WhatsApp</button>
 
-</div>
+    </div>
 
+  </div>
 
-<!-- BOTONES FLOTANTES -->
+  <!-- ================= BOTONES FLOTANTES ================= -->
 
-<div class="social-float">
+  <div class="social-float">
 
-<a href="https://wa.me/5493416930606"
-target="_blank"
-class="btn-wsp"
-data-tooltip="Escribinos por WhatsApp">
+    <a href="https://wa.me/5493416930606" target="_blank" class="btn-wsp">
+      <img src="img/whatsapp.png" alt="WhatsApp">
+    </a>
 
-<img src="img/whatsapp.png" alt="WhatsApp">
+    <a href="https://instagram.com/muebles_dilucca" target="_blank" class="btn-ig">
+      <img src="img/instagram.png" alt="Instagram">
+    </a>
 
-</a>
+  </div>
 
+  <!-- ================= ENVÍOS ================= -->
 
-<a href="https://instagram.com/muebles_dilucca"
-target="_blank"
-class="btn-ig"
-data-tooltip="Seguinos en Instagram">
+  <div class="envios" id="envios">
 
-<img src="img/instagram.png" alt="Instagram">
+    <h3>Consultar envío</h3>
 
-</a>
+    <input type="text" id="direccionCliente" placeholder="Ingresá tu dirección">
 
-</div>
-<div class="envios">
+    <button id="calcularEnvio">Calcular envío</button>
 
-<h3>Consultar envío</h3>
+    <p id="resultadoEnvio"></p>
 
-<input type="text" id="direccionCliente" placeholder="Ingresá tu dirección">
+  </div>
 
-<button id="calcularEnvio">Calcular envío</button>
+  <!-- ================= FOOTER ================= -->
 
-<p id="resultadoEnvio"></p>
+  <footer class="footer">
 
-</div>
+    <div class="footer-container">
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPna6LC1qx6A0h4tgsjOowoWrpq2bkCns&libraries=places"></script>
-<script src="js/script.js"></script>
+      <div class="footer-col">
+        <h3>DI LUCCA</h3>
+        <p>Muebles de diseño moderno, calidad y estilo para tu hogar.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <a href="#">Inicio</a>
+        <a href="#catalogo">Muebles</a>
+        <a href="#envios">Envíos</a>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="https://wa.me/5493416930606" target="_blank">WhatsApp</a>
+        <a href="https://instagram.com/muebles_dilucca" target="_blank">Instagram</a>
+        <p>Santa Fe, Argentina</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+
+      <p>© 2026 DI LUCCA - Todos los derechos reservados</p>
+
+      <p class="footer-credits">
+        Creado por
+        <a href="https://www.cssenza.com.ar" target="_blank">
+          CSSENZA STUDIO
+        </a>
+      </p>
+
+    </div>
+
+  </footer>
+
+  <!-- ================= SCRIPTS ================= -->
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPna6LC1qx6A0h4tgsjOowoWrpq2bkCns&libraries=places"></script>
+  <script src="js/script.js"></script>
+
 </body>
-
 </html>
