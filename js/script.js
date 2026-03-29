@@ -67,6 +67,7 @@ imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
 },
 
 ];
+
 const reseñasData = [
 
 {
@@ -82,6 +83,8 @@ ubicacion:"Granadero Baigorria, Santa Fe"
 
 ];
 
+// ================= RESEÑAS =================
+
 const contenedorReseñas = document.getElementById("reseñasContainer");
 
 reseñasData.forEach(r => {
@@ -90,7 +93,6 @@ const card = document.createElement("div");
 card.classList.add("reseña");
 
 card.innerHTML = `
-
 <h3>${r.nombre}</h3>
 <p>"${r.mensaje}"</p>
 <span>${r.ubicacion}</span>
@@ -99,6 +101,7 @@ card.innerHTML = `
 contenedorReseñas.appendChild(card);
 
 });
+
 let scrollPos = 0;
 
 setInterval(() => {
@@ -115,21 +118,24 @@ behavior: "smooth"
 });
 
 }, 3000);
-const contenedor = document.getElementById("productos");
 
-// ================= CARGAR PRODUCTOS =================
+// ================= PRODUCTOS =================
+
+const contenedor = document.getElementById("productos");
 
 function cargarProductos(lista){
 
-contenedor.innerHTML="";
+contenedor.innerHTML = "";
+
+const fragment = document.createDocumentFragment();
 
 lista.forEach(producto=>{
 
 const card = document.createElement("div");
 card.classList.add("producto");
 
-card.innerHTML=` <img src="${producto.imagenes[0]}" onerror="this.src='img/placeholder.jpg'">
-
+card.innerHTML = `
+<img src="${producto.imagenes[0]}" alt="${producto.nombre}" onerror="this.src='img/placeholder.jpg'">
 <h3>${producto.nombre}</h3>
 <p style="text-align:center;color:#d4af37;margin-bottom:15px;">
 ${producto.precio}
@@ -143,12 +149,13 @@ card.style.opacity = "1";
 card.style.transition = "0.4s";
 },50);
 
-card.onclick=()=>abrirModal(producto);
+card.onclick = () => abrirModal(producto);
 
-contenedor.appendChild(card);
+fragment.appendChild(card);
 
 });
 
+contenedor.appendChild(fragment);
 }
 
 cargarProductos(productosData);
@@ -192,36 +199,34 @@ const miniGaleria = document.getElementById("miniGaleria");
 
 const btnConsultar = document.getElementById("btnConsultar");
 
-// abrir modal
-
 function abrirModal(producto){
 
 modal.style.display="flex";
 document.body.style.overflow = "hidden";
 
 modalImg.src = producto.imagenes[0];
+modalImg.onerror = () => modalImg.src = "img/placeholder.jpg";
+
 modalNombre.innerText = producto.nombre;
 modalMaterial.innerText = producto.material;
 modalPrecio.innerText = producto.precio;
 modalMedidas.innerText = producto.medidas;
 modalDetalle.innerText = producto.detalle;
 
-miniGaleria.innerHTML="";
+miniGaleria.innerHTML = "";
 
 producto.imagenes.forEach(img=>{
 
-const mini=document.createElement("img");
-mini.src=img;
+const mini = document.createElement("img");
+mini.src = img;
 
-mini.onclick=()=>{
-modalImg.src=img;
+mini.onclick = () => {
+modalImg.src = img;
 };
 
 miniGaleria.appendChild(mini);
 
 });
-
-// WhatsApp PRO
 
 btnConsultar.onclick=()=>{
 
@@ -242,14 +247,12 @@ window.open(url,"_blank");
 
 }
 
-// cerrar con X
+// ================= CERRAR MODAL =================
 
 document.querySelector(".cerrar").onclick=()=>{
 modal.style.display="none";
 document.body.style.overflow = "auto";
 };
-
-// cerrar clic afuera
 
 modal.addEventListener("click", (e) => {
 if(e.target === modal){
@@ -267,6 +270,13 @@ menuToggle.addEventListener("click", () => {
 menu.classList.toggle("active");
 });
 
+// cerrar menú al tocar link
+document.querySelectorAll(".menu a").forEach(link=>{
+link.addEventListener("click", ()=>{
+menu.classList.remove("active");
+});
+});
+
 // ================= PROMO =================
 
 const promo = document.getElementById("promoPill");
@@ -275,6 +285,7 @@ const cerrarPromo = document.getElementById("cerrarPromo");
 cerrarPromo.addEventListener("click", () => {
 promo.style.display = "none";
 });
+
 // ================= ENVÍOS =================
 
 const origen = "Piedrabuena 2168, S2126 Alvear, Santa Fe, Argentina";
@@ -283,21 +294,23 @@ document.getElementById("calcularEnvio").addEventListener("click", () => {
 
 let destino = document.getElementById("direccionCliente").value;
 
-// usar autocomplete solo si existe
-if (typeof autocomplete !== "undefined" && autocomplete) {
-
+if (autocomplete) {
 const place = autocomplete.getPlace();
-
 if(place && place.formatted_address){
 destino = place.formatted_address;
 }
-
 }
 
-// validar
 if(!destino){
 document.getElementById("resultadoEnvio").innerHTML =
 "<span style='color:red;'>Ingresá una dirección válida</span>";
+return;
+}
+
+// protección google
+if (typeof google === "undefined" || !google.maps) {
+document.getElementById("resultadoEnvio").innerHTML =
+"<span style='color:red;'>Error cargando mapas</span>";
 return;
 }
 
@@ -323,7 +336,6 @@ document.getElementById("resultadoEnvio").innerHTML =
 return;
 }
 
-const distanciaTexto = data.distance.text;
 const distanciaKm = data.distance.value / 1000;
 
 let costo = 10000;
@@ -338,29 +350,27 @@ else if (distanciaKm <= 70) costo += 49000;
 else if (distanciaKm <= 80) costo += 56000;
 else {
 document.getElementById("resultadoEnvio").innerHTML = `
-
 <div class="resultado-box">
 <strong style="color:red;">
 🚫 No realizamos envíos a esa distancia.<br>
-Escribinos por WhatsApp y vemos una solución 😉
+Escribinos por WhatsApp 😉
 </strong>
-</div>
-`;
+</div>`;
 return;
 }
 
 document.getElementById("resultadoEnvio").innerHTML = `
-
 <div class="resultado-box">
 <div class="fila" style="justify-content:center;">
 <strong class="precio">🚚 Envío: $${costo}</strong>
 </div>
-</div>
-`;
+</div>`;
 
 });
 
 });
+
+// ================= AUTOCOMPLETE =================
 
 function iniciarAutocomplete(){
 
@@ -374,3 +384,55 @@ componentRestrictions: { country: "ar" }
 }
 
 window.addEventListener("load", iniciarAutocomplete);
+// seleccionar secciones automáticamente
+const elementos = document.querySelectorAll(
+  "section, .envios, .footer"
+);
+
+// agregar clase animar sin tocar HTML
+elementos.forEach(el => el.classList.add("animar"));
+
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
+    }
+  });
+},{
+  threshold:0.2
+});
+
+elementos.forEach(el=>observer.observe(el));
+function iniciarMapa(){
+
+if (typeof google === "undefined") return;
+
+const ubicacion = {
+  lat: -33.0300, 
+  lng: -60.6400
+};
+
+const mapa = new google.maps.Map(document.getElementById("mapaGoogle"), {
+  zoom: 15,
+  center: ubicacion,
+  styles: [
+    { elementType: "geometry", stylers: [{ color: "#0b0b0b" }] },
+    { elementType: "labels.text.fill", stylers: [{ color: "#d4af37" }] },
+    { elementType: "labels.text.stroke", stylers: [{ color: "#000000" }] }
+  ]
+});
+
+// PIN PERSONALIZADO (puede ser tu logo)
+new google.maps.Marker({
+  position: ubicacion,
+  map: mapa,
+  icon: {
+    url: "img/logo-header.png", // 🔥 tu logo
+    scaledSize: new google.maps.Size(40, 40)
+  }
+});
+
+}
+
+// iniciar cuando carga
+window.addEventListener("load", iniciarMapa);
