@@ -403,36 +403,57 @@ const observer = new IntersectionObserver((entries)=>{
 });
 
 elementos.forEach(el=>observer.observe(el));
+
 function iniciarMapa(){
 
 if (typeof google === "undefined") return;
 
 const ubicacion = {
-  lat: -33.0300, 
-  lng: -60.6400
+  lat: -33.032123,
+  lng: -60.642987
 };
-
+console.log("Google:", google);
 const mapa = new google.maps.Map(document.getElementById("mapaGoogle"), {
   zoom: 15,
   center: ubicacion,
   styles: [
-    { elementType: "geometry", stylers: [{ color: "#0b0b0b" }] },
-    { elementType: "labels.text.fill", stylers: [{ color: "#d4af37" }] },
-    { elementType: "labels.text.stroke", stylers: [{ color: "#000000" }] }
   ]
 });
+const geocoder = new google.maps.Geocoder();
 
-// PIN PERSONALIZADO (puede ser tu logo)
-new google.maps.Marker({
-  position: ubicacion,
-  map: mapa,
-  icon: {
-    url: "img/logo-header.png", // 🔥 tu logo
-    scaledSize: new google.maps.Size(40, 40)
+geocoder.geocode(
+  { address: "Piedrabuena 2168, Alvear, Santa Fe, Argentina" },
+  (results, status) => {
+
+    if (status === "OK") {
+
+      mapa.setCenter(results[0].geometry.location);
+
+      new google.maps.Marker({
+        map: mapa,
+        position: results[0].geometry.location,
+        icon: {
+          url: "img/ubicacion.png",
+          scaledSize: new google.maps.Size(60, 60)
+        }
+      });
+
+    }
   }
-});
-
+);
 }
 
 // iniciar cuando carga
 window.addEventListener("load", iniciarMapa);
+const mapaEl = document.getElementById("mapaGoogle");
+
+const observerMapa = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      iniciarMapa();
+      observerMapa.unobserve(entry.target);
+    }
+  });
+});
+
+observerMapa.observe(mapaEl);
