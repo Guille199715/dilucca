@@ -68,7 +68,7 @@ imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
 {
 nombre:"Mesa manicura Premium con auxiliar",
 material:"Melamina MDF 18mm",
-categoria:"mesas",
+categoria:"manicura",
 precio:"$160.000",
 medidas: "110 x 40 x 80 cm",
 detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal. Incluye auxiliar con 2 estantes para mayor organización",
