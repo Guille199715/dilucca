@@ -24,7 +24,7 @@ imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"]
 nombre:"Mesa Manicura Premium",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
-precio:"$130.000",
+precio:"$135.000",
 medidas:"110 x 40 x 80 cm",
 detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal",
 imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"]
@@ -51,7 +51,7 @@ imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"]
 nombre:"Juguetero Organizador",
 material:"Melamina MDF 18mm",
 categoria:"escritorios",
-precio:"PROXIMAMENTE",
+precio:"$140.000",
 medidas:"70 x 30 x 100 cm",
 detalle:"Diseño con 2 baules móviles y tiradores personalizables",
 imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"]
@@ -60,12 +60,47 @@ imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"]
 nombre:"Tocador Hollywood",
 material:"Melamina MDF 18mm",
 categoria:"escritorios",
-precio:"PROXIMAMENTE",
+precio:"$300.000",
 medidas:"85 x 45 x 145 cm",
 detalle:"Diseño ultra estético, con doble cajón con guias telescopicas y tirador de cristal, luces embutidas y comando minimalista para conectar tus aparatos favoritos",
 imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
 },
-
+{
+nombre:"Mesa manicura Premium con auxiliar",
+material:"Melamina MDF 18mm",
+categoria:"mesas",
+precio:"$160.000",
+medidas: "110 x 40 x 80 cm",
+detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal. Incluye auxiliar con 2 estantes para mayor organización",
+imagenes:["img/mesa8.jpg","img/mesa8-2.jpg"]
+},
+{
+nombre:"Auxiliar con ruedas",
+material:"Melamina MDF 18mm",
+categoria:"complementos",
+precio:"$55.000",
+medidas: "34 x 30 x 70 cm",
+detalle:"Diseño con 3 estantes y ruedas giratorias para fácil movilidad",
+imagenes:["img/aux1.jpg","img/aux1-2.jpg"]
+},
+{
+nombre:"Esmaltero",
+material:"Melamina MDF 18mm",
+categoria:"complementos",
+precio:"$18.000",
+medidas:"43 x 0,8 x 60 cm",
+detalle:"Diseño con 4 estantes para organizar tus esmaltes y accesorios de belleza",
+imagenes:["img/esm1.jpg"]
+},
+{
+nombre:"Esmaltero Premium",
+material:"Melamina MDF 18mm",
+categoria:"complementos",
+precio:"$30.000",
+medidas:"83 x 0,8 x 600 cm",
+detalle:"Diseño ampliado con 4 estantes para organizar tus esmlates y accesorios de belleza",
+imagenes:["img/esm2.jpg"]
+},
 ];
 
 const reseñasData = [
@@ -79,8 +114,22 @@ ubicacion:"San Lorenzo, Santa Fe"
 nombre:"Cintia",
 mensaje:"La verdad hermosa la mesa! 💯",
 ubicacion:"Granadero Baigorria, Santa Fe"
-}
-
+},
+{
+nombre:"Valentina",
+mensaje:"Excelente calidad y diseño! 😍",
+ubicacion:"Arroyo Seco, Santa Fe"
+},
+{
+nombre:"Norma",
+mensaje:"Muy recomendable, excelente atención! 👌",
+ubicacion:"Rosario, Santa Fe"
+},
+{
+nombre:"Roxana",
+mensaje:"Quedé encantada con mi mesa, superó mis expectativas! 🌟",
+ubicacion:"Rosario, Santa Fe"
+},
 ];
 
 // ================= RESEÑAS =================
