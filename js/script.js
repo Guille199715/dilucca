@@ -80,7 +80,7 @@ material:"Melamina MDF 18mm",
 categoria:"complementos",
 precio:"$55.000",
 medidas: "34 x 30 x 70 cm",
-detalle:"Diseño con 3 estantes y ruedas giratorias para fácil movilidad",
+detalle:"Diseño con 4 estantes y ruedas giratorias para fácil movilidad",
 imagenes:["img/aux1.jpg","img/aux1-2.jpg"]
 },
 {
