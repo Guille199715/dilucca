@@ -15,7 +15,7 @@ imagenes:["img/mesa1.jpg","img/mesa1-2.jpg"]
 nombre:"Mesa Manicura Restyling",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
-precio:"$95.000",
+precio:"$100.000",
 medidas:"80 x 40 x 80 cm",
 detalle:"Rediseño de la Mesa Estándar, ideal para salón de belleza, con superficie de vidrio",
 imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"]
@@ -24,7 +24,7 @@ imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"]
 nombre:"Mesa Manicura Premium",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
-precio:"$135.000",
+precio:"$140.000",
 medidas:"110 x 40 x 80 cm",
 detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal",
 imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"]
@@ -33,7 +33,7 @@ imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"]
 nombre:"Mesa Ratona",
 material:"Melamina MDF 18mm",
 categoria:"mesas",
-precio:"$75.000",
+precio:"$80.000",
 medidas:"80 x 50 x 45 cm",
 detalle:"Diseño moderno, con superficie de vidrio",
 imagenes:["img/mesa3.jpg","img/mesa3-2.jpg"]
@@ -51,7 +51,7 @@ imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"]
 nombre:"Juguetero Organizador",
 material:"Melamina MDF 18mm",
 categoria:"escritorios",
-precio:"$140.000",
+precio:"$160.000",
 medidas:"70 x 30 x 100 cm",
 detalle:"Diseño con 2 baules móviles y tiradores personalizables",
 imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"]
@@ -69,7 +69,7 @@ imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
 nombre:"Mesa manicura Premium con auxiliar",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
-precio:"$160.000",
+precio:"$180.000",
 medidas: "110 x 40 x 80 cm",
 detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal. Incluye auxiliar con 2 estantes para mayor organización",
 imagenes:["img/mesa8.jpg","img/mesa8-2.jpg"]
