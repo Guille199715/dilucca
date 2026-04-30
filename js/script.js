@@ -130,6 +130,31 @@ nombre:"Roxana",
 mensaje:"Quedé encantada con mi mesa, superó mis expectativas! 🌟",
 ubicacion:"Rosario, Santa Fe"
 },
+{
+nombre:"Julio",
+mensaje:"Excelente trabajo, la mesa ratona es hermosa y muy funcional! 👏",
+ubicacion:"Villa Gobernador Gálvez, Santa Fe"
+},
+{
+nombre:"Ignacia",
+mensaje:"Me encantó el diseño de la mesa de luz, es justo lo que buscaba para mi habitación! 💖",
+ubicacion:"Villa Gobernador Gálvez, Santa Fe"
+},
+{
+nombre:"Belu",
+mensaje:"La mesa de manicura premium es una belleza, la calidad es excelente y el diseño moderno la hace destacar en mi salón! 🌟",
+ubicacion:"Granadero Baigorria, Santa Fe"
+},
+{
+nombre:"Brenda ",
+mensaje:"Hermosa la mesa con auxiliar, es super práctica y el diseño es muy lindo! 😍",
+ubicacion:"Rosario, Santa Fe"
+},
+{
+nombre:"Nerina",
+mensaje:"La mesa me encantó! 💖",
+ubicacion:"Rosario, Santa Fe"
+},
 ];
 
 // ================= RESEÑAS =================
@@ -152,8 +177,15 @@ contenedorReseñas.appendChild(card);
 });
 
 let scrollPos = 0;
+let autoScrollActivo = true;
+let intervalo;
+let reanudarTimeout;
 
-setInterval(() => {
+// iniciar auto scroll
+function iniciarAutoScroll(){
+intervalo = setInterval(() => {
+
+if(!autoScrollActivo) return;
 
 scrollPos += 320;
 
@@ -167,7 +199,26 @@ behavior: "smooth"
 });
 
 }, 3000);
+}
 
+// detener temporalmente
+function pausarAutoScroll(){
+autoScrollActivo = false;
+
+clearTimeout(reanudarTimeout);
+
+reanudarTimeout = setTimeout(() => {
+autoScrollActivo = true;
+}, 5000);
+}
+
+// detectar interacción
+contenedorReseñas.addEventListener("scroll", pausarAutoScroll);
+contenedorReseñas.addEventListener("touchstart", pausarAutoScroll);
+contenedorReseñas.addEventListener("mousedown", pausarAutoScroll);
+
+// iniciar
+iniciarAutoScroll();
 // ================= PRODUCTOS =================
 
 const contenedor = document.getElementById("productos");
