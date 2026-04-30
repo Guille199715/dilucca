@@ -1127,4 +1127,26 @@ box-shadow:0 25px 60px rgba(0,0,0,0.8);
 
 #mapaGoogle{
 filter:brightness(0.9) contrast(1.1) saturate(0.8);
+}.reseñas-container {
+  overflow-x: auto;
+  scrollbar-width: thin; /* Firefox */
+  scrollbar-color: #d4af37 transparent;
+}
+
+/* Chrome, Edge, Safari */
+.reseñas-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.reseñas-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.reseñas-container::-webkit-scrollbar-thumb {
+  background: #d4af37;
+  border-radius: 10px;
+}
+
+.reseñas-container::-webkit-scrollbar-thumb:hover {
+  background: #b8962e;
 }
