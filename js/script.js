@@ -9,7 +9,8 @@ categoria:"manicura",
 precio:"$90.000",
 medidas:"80 x 40 x 80 cm",
 detalle:"Mesa ideal para salón de belleza con superficie de vidrio",
-imagenes:["img/mesa1.jpg","img/mesa1-2.jpg"]
+imagenes:["img/mesa1.jpg","img/mesa1-2.jpg"],
+sinStock: false
 },
 {
 nombre:"Mesa Manicura Restyling",
@@ -18,7 +19,8 @@ categoria:"manicura",
 precio:"$100.000",
 medidas:"80 x 40 x 80 cm",
 detalle:"Rediseño de la Mesa Estándar, ideal para salón de belleza, con superficie de vidrio",
-imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"]
+imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"],
+sinStock: false
 },
 {
 nombre:"Mesa Manicura Premium",
@@ -27,7 +29,8 @@ categoria:"manicura",
 precio:"$140.000",
 medidas:"110 x 40 x 80 cm",
 detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal",
-imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"]
+imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"],
+sinStock: false
 },
 {
 nombre:"Mesa Ratona",
@@ -36,7 +39,8 @@ categoria:"mesas",
 precio:"$80.000",
 medidas:"80 x 50 x 45 cm",
 detalle:"Diseño moderno, con superficie de vidrio",
-imagenes:["img/mesa3.jpg","img/mesa3-2.jpg"]
+imagenes:["img/mesa3.jpg","img/mesa3-2.jpg"],
+sinStock: false
 },
 {
 nombre:"Mesa de Luz",
@@ -45,7 +49,8 @@ categoria:"mesas",
 precio:"$80.000",
 medidas:"43 x 40 x 58 cm",
 detalle:"Diseño robusto con patas regulables en altura y un cajón",
-imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"]
+imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"],
+sinStock: false
 },
 {
 nombre:"Juguetero Organizador",
@@ -54,7 +59,8 @@ categoria:"escritorios",
 precio:"$160.000",
 medidas:"70 x 30 x 100 cm",
 detalle:"Diseño con 2 baules móviles y tiradores personalizables",
-imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"]
+imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"],
+sinStock: true
 },
 {
 nombre:"Tocador Hollywood",
@@ -63,7 +69,8 @@ categoria:"escritorios",
 precio:"$300.000",
 medidas:"85 x 45 x 145 cm",
 detalle:"Diseño ultra estético, con doble cajón con guias telescopicas y tirador de cristal, luces embutidas y comando minimalista para conectar tus aparatos favoritos",
-imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
+imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"],
+sinStock: true
 },
 {
 nombre:"Mesa manicura Premium con auxiliar",
@@ -72,7 +79,8 @@ categoria:"manicura",
 precio:"$180.000",
 medidas: "110 x 40 x 80 cm",
 detalle:"Diseño moderno, con agregado de cajón, guias telescópicas y tirador de cristal. Incluye auxiliar con 2 estantes para mayor organización",
-imagenes:["img/mesa8.jpg","img/mesa8-2.jpg"]
+imagenes:["img/mesa8.jpg","img/mesa8-2.jpg"],
+sinStock: true
 },
 {
 nombre:"Auxiliar con ruedas",
@@ -81,7 +89,8 @@ categoria:"complementos",
 precio:"$55.000",
 medidas: "34 x 30 x 70 cm",
 detalle:"Diseño con 4 estantes y ruedas giratorias para fácil movilidad",
-imagenes:["img/aux1.jpg","img/aux1-2.jpg"]
+imagenes:["img/aux1.jpg","img/aux1-2.jpg"],
+sinStock: true
 },
 {
 nombre:"Esmaltero",
@@ -90,7 +99,8 @@ categoria:"complementos",
 precio:"$18.000",
 medidas:"43 x 8 x 60 cm",
 detalle:"Diseño con 4 estantes para organizar tus esmaltes y accesorios de belleza",
-imagenes:["img/esm1.jpg"]
+imagenes:["img/esm1.jpg"],
+sinStock: true
 },
 {
 nombre:"Esmaltero Premium",
@@ -99,7 +109,8 @@ categoria:"complementos",
 precio:"$30.000",
 medidas:"83 x 8 x 60 cm",
 detalle:"Diseño ampliado con 4 estantes para organizar tus esmlates y accesorios de belleza",
-imagenes:["img/esm2.jpg"]
+imagenes:["img/esm2.jpg"],
+sinStock: true
 },
 ];
 
@@ -235,11 +246,12 @@ const card = document.createElement("div");
 card.classList.add("producto");
 
 card.innerHTML = `
-<img src="${producto.imagenes[0]}" alt="${producto.nombre}" onerror="this.src='img/placeholder.jpg'">
-<h3>${producto.nombre}</h3>
-<p style="text-align:center;color:#d4af37;margin-bottom:15px;">
-${producto.precio}
-</p>
+  ${producto.sinStock ? '<div class="sin-stock pulso">SIN STOCK</div>' : ''}
+  <img src="${producto.imagenes[0]}" alt="${producto.nombre}" onerror="this.src=\'img/placeholder.jpg\'">
+  <h3>${producto.nombre}</h3>
+  <p style="text-align:center;color:#d4af37;margin-bottom:15px;">
+    ${producto.precio}
+  </p>
 `;
 
 card.style.opacity = "0";
