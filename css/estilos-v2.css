@@ -1,0 +1,1352 @@
+/* =========================================================
+   DI LUCCA - ESTILOS V2 (GLASSMORPHISM OSCURO + DORADO)
+   Versión extendida ~1500 líneas aprox
+   Guillermo - 2026
+========================================================= */
+
+/* ===========================
+   1. RESET + BASE
+=========================== */
+
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background:#050505;
+  color:#f5f5f5;
+  overflow-x:hidden;
+  line-height:1.5;
+}
+
+/* Variables principales */
+:root{
+  --bg-main:#050505;
+  --bg-alt:#0d0d0d;
+  --glass-bg:rgba(255,255,255,0.08);
+  --glass-bg-soft:rgba(255,255,255,0.05);
+  --glass-border:rgba(255,255,255,0.18);
+  --glass-border-soft:rgba(255,255,255,0.12);
+  --gold:#d4af37;
+  --gold-soft:#e8c96a;
+  --gold-strong:#c79b1f;
+  --text-main:#f5f5f5;
+  --text-soft:#d0d0d0;
+  --text-muted:#9a9a9a;
+  --danger:#ff4b5c;
+  --success:#4cd964;
+  --shadow-soft:0 10px 35px rgba(0,0,0,0.45);
+  --shadow-strong:0 18px 60px rgba(0,0,0,0.75);
+  --radius-lg:20px;
+  --radius-md:14px;
+  --radius-sm:10px;
+  --transition-fast:0.2s ease;
+  --transition:0.3s ease;
+  --transition-slow:0.45s ease;
+}
+
+/* Glass base */
+.glass{
+  background:var(--glass-bg);
+  backdrop-filter:blur(14px) saturate(160%);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft);
+  border-radius:var(--radius-lg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{
+  width:8px;
+  height:8px;
+}
+::-webkit-scrollbar-track{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb{
+  background:var(--gold);
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:var(--gold-soft);
+}
+
+/* Links */
+a{
+  color:inherit;
+}
+
+/* Imágenes */
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* ===========================
+   2. LAYOUT GENERAL
+=========================== */
+
+section{
+  position:relative;
+}
+
+/* Contenedor ancho */
+.container{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* ===========================
+   3. HEADER
+=========================== */
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  padding:14px 30px;
+  z-index:1000;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  background:linear-gradient(
+    to bottom,
+    rgba(5,5,5,0.95),
+    rgba(5,5,5,0.75)
+  );
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.header-left{
+  display:flex;
+  align-items:center;
+  gap:40px;
+}
+
+.logo img{
+  height:42px;
+  filter:drop-shadow(0 4px 10px rgba(0,0,0,0.7));
+}
+
+/* Menú principal */
+.menu{
+  display:flex;
+  gap:28px;
+  align-items:center;
+}
+
+.menu a{
+  color:var(--text-soft);
+  text-decoration:none;
+  font-weight:500;
+  font-size:15px;
+  letter-spacing:0.03em;
+  position:relative;
+  padding-bottom:4px;
+  transition:color var(--transition), transform var(--transition-fast);
+}
+
+.menu a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-soft));
+  border-radius:999px;
+  transition:width var(--transition);
+}
+
+.menu a:hover{
+  color:var(--text-main);
+  transform:translateY(-1px);
+}
+
+.menu a:hover::after{
+  width:100%;
+}
+
+/* Botón hamburguesa */
+.menu-toggle{
+  display:none;
+  font-size:30px;
+  color:var(--gold);
+  cursor:pointer;
+}
+
+/* ===========================
+   4. HERO
+=========================== */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:0 20px;
+  padding-top:90px;
+
+  background:
+    radial-gradient(circle at top left, rgba(212,175,55,0.18), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(232,201,106,0.18), transparent 55%),
+    linear-gradient(180deg, #050505 0%, #050505 40%, #020202 100%),
+    url("../img/fondo-muebles.jpg");
+  background-size:cover;
+  background-position:center;
+  background-blend-mode:soft-light, soft-light, normal, overlay;
+}
+
+.hero-contenido{
+  max-width:620px;
+  margin:auto;
+  padding:40px 32px;
+  border-radius:26px;
+
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.04)
+  );
+  backdrop-filter:blur(18px) saturate(180%);
+  -webkit-backdrop-filter:blur(18px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.22);
+  box-shadow:0 18px 60px rgba(0,0,0,0.85);
+  position:relative;
+  overflow:hidden;
+}
+
+/* brillo decorativo */
+.hero-contenido::before{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  background:radial-gradient(circle, rgba(255,255,255,0.35), transparent 60%);
+  top:-80px;
+  right:-60px;
+  opacity:0.35;
+  pointer-events:none;
+}
+
+/* borde interno suave */
+.hero-contenido::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  border:1px solid rgba(255,255,255,0.08);
+  pointer-events:none;
+}
+
+.hero-logo{
+  width:260px;
+  margin:0 auto 20px;
+}
+
+.hero h1{
+  font-size:46px;
+  color:var(--gold);
+  margin-bottom:10px;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+
+.hero p{
+  font-size:17px;
+  color:var(--text-soft);
+  margin-bottom:20px;
+}
+
+/* Subtexto */
+.hero-sub{
+  font-size:13px;
+  color:var(--text-muted);
+  margin-bottom:10px;
+}
+
+/* Botones hero */
+.hero-botones{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:14px;
+  margin-top:18px;
+}
+
+.btn-ver,
+.btn-envio{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px 30px;
+  border-radius:999px;
+  font-weight:600;
+  text-decoration:none;
+  font-size:14px;
+  cursor:pointer;
+  transition:background var(--transition), color var(--transition), transform var(--transition-fast), box-shadow var(--transition);
+  border:none;
+}
+
+/* botón principal */
+.btn-ver{
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#111;
+  box-shadow:0 10px 30px rgba(0,0,0,0.7);
+}
+
+.btn-ver:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px rgba(0,0,0,0.85);
+}
+
+/* botón secundario */
+.btn-envio{
+  background:transparent;
+  color:var(--gold);
+  border:1px solid rgba(212,175,55,0.7);
+}
+
+.btn-envio:hover{
+  background:rgba(212,175,55,0.12);
+  transform:translateY(-2px);
+}
+
+/* ===========================
+   5. PROMO PILL
+=========================== */
+
+.promo-pill{
+  position:fixed;
+  top:80px;
+  left:50%;
+  transform:translateX(-50%);
+  padding:10px 22px;
+  border-radius:999px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:1200;
+
+  background:rgba(212,175,55,0.16);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(212,175,55,0.6);
+  color:var(--gold-soft);
+  box-shadow:0 10px 30px rgba(0,0,0,0.7);
+  max-width:90%;
+  animation:promoPulse 2.8s ease-in-out infinite;
+}
+
+.promo-pill p{
+  margin:0;
+  font-size:13px;
+  color:#f7f3e8;
+}
+
+.cerrar-promo{
+  cursor:pointer;
+  font-size:16px;
+  font-weight:bold;
+  color:#f7f3e8;
+}
+
+/* ===========================
+   6. CATALOGO
+=========================== */
+
+.catalogo{
+  padding:120px 20px 80px;
+  background:radial-gradient(circle at top, rgba(212,175,55,0.12), transparent 55%), #050505;
+}
+
+.catalogo .container{
+  max-width:1150px;
+}
+
+.catalogo h2{
+  text-align:center;
+  color:var(--gold);
+  font-size:34px;
+  margin-bottom:12px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+}
+
+.catalogo-sub{
+  text-align:center;
+  color:var(--text-muted);
+  font-size:14px;
+  margin-bottom:30px;
+}
+
+/* filtros */
+.filtros{
+  text-align:center;
+  margin-bottom:35px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.filtros button{
+  background:var(--glass-bg-soft);
+  border:1px solid var(--glass-border-soft);
+  color:var(--text-soft);
+  padding:9px 20px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:0.03em;
+  text-transform:uppercase;
+  transition:var(--transition);
+}
+
+.filtros button:hover{
+  background:rgba(212,175,55,0.18);
+  color:var(--gold-soft);
+  border-color:rgba(212,175,55,0.7);
+}
+
+.filtros button.activo{
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#111;
+  border-color:transparent;
+}
+
+/* grid productos */
+.productos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:26px;
+}
+
+/* tarjeta producto */
+.producto{
+  position:relative;
+  padding:16px;
+  border-radius:22px;
+  cursor:pointer;
+  overflow:hidden;
+
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.04)
+  );
+  backdrop-filter:blur(16px) saturate(180%);
+  -webkit-backdrop-filter:blur(16px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.18);
+  box-shadow:0 14px 45px rgba(0,0,0,0.8);
+  transition:transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+/* brillo diagonal */
+.producto::before{
+  content:"";
+  position:absolute;
+  top:-40%;
+  left:-40%;
+  width:80%;
+  height:80%;
+  background:radial-gradient(circle, rgba(255,255,255,0.25), transparent 60%);
+  opacity:0;
+  transform:translate3d(0,0,0);
+  transition:opacity var(--transition-slow);
+  pointer-events:none;
+}
+
+.producto:hover::before{
+  opacity:0.5;
+}
+
+.producto:hover{
+  transform:translateY(-10px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.9);
+  border-color:rgba(212,175,55,0.7);
+}
+
+.producto img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-bottom:14px;
+  background:#111;
+}
+
+.producto h3{
+  font-size:17px;
+  color:var(--text-main);
+  margin-bottom:6px;
+  text-align:center;
+}
+
+.producto p{
+  text-align:center;
+  color:var(--gold-soft);
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+/* etiqueta categoría opcional */
+.producto-categoria{
+  position:absolute;
+  top:14px;
+  left:14px;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  background:rgba(0,0,0,0.6);
+  color:var(--gold-soft);
+}
+
+/* ===========================
+   7. MODAL PRODUCTO
+=========================== */
+
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.78);
+  z-index:2000;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.modal-contenido{
+  width:100%;
+  max-width:520px;
+  padding:24px 22px 26px;
+  border-radius:24px;
+  position:relative;
+  overflow:hidden;
+
+  background:linear-gradient(
+    145deg,
+    rgba(255,255,255,0.16),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter:blur(20px) saturate(190%);
+  -webkit-backdrop-filter:blur(20px) saturate(190%);
+  border:1px solid rgba(255,255,255,0.22);
+  box-shadow:0 20px 70px rgba(0,0,0,0.9);
+}
+
+/* borde interno */
+.modal-contenido::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  border:1px solid rgba(255,255,255,0.08);
+  pointer-events:none;
+}
+
+.modal-contenido img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-bottom:14px;
+  background:#111;
+}
+
+.cerrar{
+  position:absolute;
+  top:14px;
+  right:18px;
+  font-size:26px;
+  cursor:pointer;
+  color:#f5f5f5;
+  text-shadow:0 0 8px rgba(0,0,0,0.8);
+  transition:transform var(--transition-fast), color var(--transition-fast);
+}
+
+.cerrar:hover{
+  transform:scale(1.1);
+  color:var(--gold-soft);
+}
+
+.modal h2{
+  font-size:20px;
+  color:var(--gold);
+  margin-bottom:8px;
+}
+
+.modal p{
+  font-size:14px;
+  color:var(--text-soft);
+  margin-bottom:4px;
+}
+
+.modal strong{
+  color:var(--gold-soft);
+}
+
+/* mini galería */
+.mini-galeria{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+
+.mini-galeria img{
+  width:70px;
+  height:70px;
+  object-fit:cover;
+  border-radius:10px;
+  cursor:pointer;
+  opacity:0.8;
+  border:1px solid rgba(255,255,255,0.2);
+  transition:opacity var(--transition-fast), transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.mini-galeria img:hover{
+  opacity:1;
+  transform:translateY(-2px);
+  border-color:var(--gold-soft);
+}
+
+/* botón consultar */
+#btnConsultar{
+  margin-top:18px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#111;
+  border:none;
+  padding:13px 20px;
+  border-radius:999px;
+  font-weight:600;
+  cursor:pointer;
+  width:100%;
+  box-shadow:0 10px 30px rgba(0,0,0,0.8);
+  transition:var(--transition);
+}
+
+#btnConsultar:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px rgba(0,0,0,0.9);
+}
+
+/* ===========================
+   8. RESEÑAS
+=========================== */
+
+.reseñas{
+  padding:80px 20px;
+  background:radial-gradient(circle at top, rgba(232,201,106,0.12), transparent 55%), #050505;
+}
+
+.reseñas .container{
+  max-width:1100px;
+}
+
+.reseñas h2{
+  text-align:center;
+  color:var(--gold);
+  font-size:28px;
+  margin-bottom:10px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+
+.reseñas-sub{
+  text-align:center;
+  color:var(--text-muted);
+  font-size:13px;
+  margin-bottom:25px;
+}
+
+.reseñas-container{
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  scroll-snap-type:x mandatory;
+}
+
+.reseña{
+  min-width:280px;
+  max-width:320px;
+  scroll-snap-align:start;
+  padding:18px 16px;
+  border-radius:18px;
+
+  background:var(--glass-bg);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft);
+}
+
+.reseña h3{
+  color:var(--gold-soft);
+  margin-bottom:6px;
+  font-size:15px;
+}
+
+.reseña p{
+  color:var(--text-soft);
+  font-size:13px;
+}
+
+.reseña span{
+  display:block;
+  margin-top:8px;
+  font-size:11px;
+  color:var(--text-muted);
+}
+
+/* ===========================
+   9. NOSOTROS
+=========================== */
+
+.nosotros{
+  padding:90px 20px;
+  background:#050505;
+}
+
+.nosotros .container{
+  max-width:1150px;
+}
+
+.nosotros-container{
+  display:flex;
+  align-items:flex-start;
+  gap:40px;
+}
+
+.nosotros-texto{
+  flex:1;
+}
+
+.nosotros-texto h2{
+  color:var(--gold);
+  font-size:30px;
+  margin-bottom:16px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+
+.nosotros-texto p{
+  color:var(--text-soft);
+  margin-bottom:12px;
+  font-size:14px;
+}
+
+.nosotros-texto strong{
+  color:var(--gold-soft);
+}
+
+/* lista de ventajas */
+.nosotros-beneficios{
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:var(--glass-bg-soft);
+  border:1px solid var(--glass-border-soft);
+  color:var(--gold-soft);
+  font-size:13px;
+}
+
+/* videos */
+.nosotros-img{
+  flex:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.video-nosotros{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 14px 40px rgba(0,0,0,0.8);
+}
+
+/* ===========================
+   10. ENVÍOS
+=========================== */
+
+.envios{
+  max-width:420px;
+  margin:60px auto;
+  padding:24px 22px;
+  border-radius:20px;
+
+  background:var(--glass-bg);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-soft);
+  text-align:center;
+}
+
+.envios h3{
+  color:var(--gold);
+  margin-bottom:12px;
+  font-size:20px;
+}
+
+#direccionCliente{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.08);
+  color:var(--text-main);
+  margin-bottom:12px;
+  font-size:14px;
+}
+
+#direccionCliente::placeholder{
+  color:var(--text-muted);
+}
+
+#direccionCliente:focus{
+  outline:none;
+  border-color:var(--gold-soft);
+}
+
+#calcularEnvio{
+  width:100%;
+  padding:13px;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#111;
+  font-weight:600;
+  border:none;
+  cursor:pointer;
+  transition:var(--transition);
+  box-shadow:0 10px 30px rgba(0,0,0,0.8);
+}
+
+#calcularEnvio:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px rgba(0,0,0,0.9);
+}
+
+#resultadoEnvio{
+  margin-top:12px;
+  font-size:13px;
+  color:var(--text-soft);
+}
+
+/* resultado bonito */
+.resultado-box{
+  margin-top:10px;
+  padding:12px 14px;
+  border-radius:14px;
+  background:rgba(0,0,0,0.55);
+  border:1px solid rgba(255,255,255,0.18);
+}
+
+.fila{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:6px;
+  color:var(--text-soft);
+  font-size:13px;
+}
+
+.fila:last-child{
+  margin-bottom:0;
+}
+
+.precio{
+  color:var(--gold-soft);
+  font-size:16px;
+}
+
+/* ===========================
+   11. MAPA
+=========================== */
+
+.mapa{
+  max-width:1100px;
+  margin:60px auto;
+  border-radius:22px;
+  overflow:hidden;
+  position:relative;
+
+  background:var(--glass-bg);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid var(--glass-border);
+  box-shadow:var(--shadow-strong);
+  transition:transform var(--transition), box-shadow var(--transition);
+}
+
+.mapa:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 70px rgba(0,0,0,0.95);
+}
+
+#mapaGoogle{
+  width:100%;
+  height:380px;
+  filter:brightness(0.9) contrast(1.1) saturate(0.9);
+}
+
+/* botón cómo llegar */
+.btn-mapa{
+  position:absolute;
+  bottom:16px;
+  left:50%;
+  transform:translateX(-50%);
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#111;
+  padding:11px 22px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:600;
+  font-size:13px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.9);
+  transition:var(--transition);
+}
+
+.btn-mapa:hover{
+  transform:translateX(-50%) translateY(-2px);
+  box-shadow:0 14px 40px rgba(0,0,0,0.95);
+}
+
+/* ===========================
+   12. BOTONES SOCIALES FLOTANTES
+=========================== */
+
+.social-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  z-index:2500;
+}
+
+.social-float a{
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.9);
+  transition:transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-fast);
+  opacity:0.95;
+}
+
+.social-float a:hover{
+  transform:translateY(-3px) scale(1.03);
+  box-shadow:0 14px 40px rgba(0,0,0,1);
+  opacity:1;
+}
+
+.btn-wsp{
+  background:#25D366;
+  animation:wspPulse 2.6s infinite;
+}
+
+.btn-ig{
+  background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+}
+
+.social-float img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+
+/* ===========================
+   13. FOOTER
+=========================== */
+
+.footer{
+  background:#050505;
+  padding:60px 20px 20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-container{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:28px;
+}
+
+.footer-col h3,
+.footer-col h4{
+  color:var(--gold);
+  margin-bottom:10px;
+  font-size:18px;
+}
+
+.footer-col p{
+  color:var(--text-soft);
+  font-size:13px;
+  line-height:1.6;
+}
+
+.footer-col a{
+  display:block;
+  color:var(--text-muted);
+  text-decoration:none;
+  margin-bottom:6px;
+  font-size:13px;
+  transition:color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-col a:hover{
+  color:var(--gold-soft);
+  transform:translateX(2px);
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:30px auto 0;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,0.08);
+  text-align:center;
+  color:var(--text-muted);
+  font-size:12px;
+}
+
+.footer-credits{
+  margin-top:6px;
+  font-size:12px;
+  color:var(--text-muted);
+}
+
+.footer-credits a{
+  color:var(--gold-soft);
+  text-decoration:none;
+  font-weight:500;
+}
+
+.footer-credits a:hover{
+  text-decoration:underline;
+}
+
+/* ===========================
+   14. ANIMACIONES SCROLL (animar)
+=========================== */
+
+.animar{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.6s ease;
+}
+
+.animar.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.animar:nth-child(1){transition-delay:0.1s;}
+.animar:nth-child(2){transition-delay:0.2s;}
+.animar:nth-child(3){transition-delay:0.3s;}
+.animar:nth-child(4){transition-delay:0.4s;}
+.animar:nth-child(5){transition-delay:0.5s;}
+
+/* ===========================
+   15. AUTOCOMPLETE GOOGLE
+=========================== */
+
+.pac-container{
+  background:#111 !important;
+  border-radius:12px !important;
+  border:1px solid #222 !important;
+  box-shadow:0 14px 40px rgba(0,0,0,0.9) !important;
+  font-family:"Poppins", Arial, sans-serif;
+  z-index:9999 !important;
+  overflow:hidden;
+}
+
+.pac-item{
+  padding:10px 14px !important;
+  color:#ccc !important;
+  cursor:pointer;
+  background:#111 !important;
+  border-bottom:1px solid #222 !important;
+}
+
+.pac-item:hover{
+  background:#d4af37 !important;
+  color:#111 !important;
+}
+
+.pac-item-query{
+  color:#fff !important;
+  font-weight:bold;
+}
+
+.pac-matched{
+  color:#d4af37 !important;
+}
+
+.pac-icon{
+  display:none !important;
+}
+
+/* ===========================
+   16. MEDIA QUERIES
+=========================== */
+
+@media(max-width:992px){
+  .nosotros-container{
+    flex-direction:column;
+  }
+}
+
+@media(max-width:768px){
+
+  .header{
+    padding:12px 18px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+  .menu{
+    position:absolute;
+    top:64px;
+    right:0;
+    width:100%;
+    flex-direction:column;
+    align-items:flex-start;
+    padding:16px 20px;
+    background:rgba(5,5,5,0.96);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+    display:none;
+  }
+
+  .menu.active{
+    display:flex;
+  }
+
+  .menu a{
+    padding:8px 0;
+  }
+
+  .hero{
+    padding-top:90px;
+  }
+
+  .hero-contenido{
+    padding:26px 18px 30px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero-logo{
+    width:190px;
+  }
+
+  .catalogo{
+    padding-top:90px;
+  }
+
+  .productos{
+    grid-template-columns:1fr;
+  }
+
+  .producto img{
+    height:210px;
+  }
+
+  .modal-contenido{
+    padding:18px 16px 22px;
+  }
+
+  .mini-galeria img{
+    width:60px;
+    height:60px;
+  }
+
+  .nosotros-container{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .nosotros-img{
+    grid-template-columns:1fr;
+  }
+
+  .video-nosotros{
+    height:auto;
+  }
+
+  .mapa{
+    margin:40px 15px;
+  }
+
+  #mapaGoogle{
+    height:280px;
+  }
+
+  .social-float{
+    bottom:14px;
+    right:14px;
+  }
+
+  .social-float a{
+    width:48px;
+    height:48px;
+  }
+
+  .promo-pill{
+    top:90px;
+    width:92%;
+    padding:10px 16px;
+    text-align:center;
+  }
+}
+
+/* ===========================
+   17. KEYFRAMES
+=========================== */
+
+@keyframes promoPulse{
+  0%{transform:translateX(-50%) scale(1);}
+  50%{transform:translateX(-50%) scale(1.04);}
+  100%{transform:translateX(-50%) scale(1);}
+}
+
+@keyframes wspPulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+  100%{transform:scale(1);}
+}
+
+/* ===========================
+   18. UTILIDADES EXTRA
+=========================== */
+
+/* espaciados */
+.mt-20{margin-top:20px;}
+.mt-30{margin-top:30px;}
+.mt-40{margin-top:40px;}
+.mb-20{margin-bottom:20px;}
+.mb-30{margin-bottom:30px;}
+.text-center{text-align:center;}
+.text-gold{color:var(--gold);}
+.text-soft{color:var(--text-soft);}
+.text-muted{color:var(--text-muted);}
+
+/* sombras */
+.shadow-soft{box-shadow:var(--shadow-soft);}
+.shadow-strong{box-shadow:var(--shadow-strong);}
+
+/* bordes */
+.rounded-lg{border-radius:var(--radius-lg);}
+.rounded-md{border-radius:var(--radius-md);}
+.rounded-sm{border-radius:var(--radius-sm);}
+
+/* botones genéricos */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px 20px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  font-weight:500;
+  font-size:14px;
+  text-decoration:none;
+  transition:var(--transition);
+}
+
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),var(--gold-soft));
+  color:#111;
+}
+
+.btn-gold-outline{
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold-soft);
+}
+
+/* ===========================
+   19. INPUT FIX (iPhone zoom)
+=========================== */
+
+input{
+  font-size:16px;
+}
+/* === CINTA SIN STOCK === */
+.sin-stock{
+  position:absolute;
+  top:14px;
+  left:-65px;
+  width:200px;
+  padding:10px 0;
+
+  background:rgba(0,0,0,0.85);
+  color:white;
+  font-weight:700;
+  font-size:10px;
+  text-transform:uppercase;
+  text-align:center;
+  letter-spacing:1.8px;
+
+  transform:rotate(-45deg);
+  border-radius:6px;
+  box-shadow:0 8px 25px rgba(0,0,0,0.6);
+
+  z-index:10;
+  pointer-events:none;
+}
+
+/* ANIMACIÓN PULSO */
+.sin-stock.pulso{
+  animation:pulsoStock 1.8s ease-in-out infinite;
+}
+
+@keyframes pulsoStock{
+  0%{ transform:rotate(-45deg) scale(1); }
+  50%{ transform:rotate(-45deg) scale(1.06); }
+  100%{ transform:rotate(-45deg) scale(1); }
+}
+
+/* VERSIÓN DORADA */
+.sin-stock.dorado{
+  background:linear-gradient(135deg, #d4af37, #b8962e);
+  color:#111;
+  font-weight:800;
+}
