@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mueblesdilucca.com.ar/sitemap.xml
