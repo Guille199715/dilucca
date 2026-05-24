@@ -112,6 +112,16 @@ detalle:"Esmaltero ampliado con 4 estantes para organizar esmaltes y accesorios 
 imagenes:["img/esm2.jpg"],
 sinStock: true
 },
+{
+nombre:"Cajonera",
+material:"Melamina MDF 18mm",
+categoria:"mesas",
+precio:"$200.000",
+medidas:"43 x 40 x 80 cm",
+detalle:"Cajonera con 4 cajones para organizar tus objetos de forma práctica y ordenada.",
+imagenes:["img/caj1.jpg"],
+sinStock: true
+},
 ];
 
 const reseñasData = [
