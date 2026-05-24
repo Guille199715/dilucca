@@ -4,9 +4,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muebles en Santa Fe | DI LUCCA - Mesas, Escritorios y Manicura</title>
-  <meta name="description" content="Fabricación de muebles modernos en Santa Fe. Mesas, escritorios, tocadores y muebles de manicura. Calidad y diseño directo de fábrica.">
+  <title>DI LUCCA | Muebles de diseño en Santa Fe</title>
+  <meta name="description" content="Muebles de diseño fabricados en Santa Fe. Mesas de manicura, tocadores, mesas ratonas y complementos con atención directa de fábrica.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="DI LUCCA">
+  <meta name="theme-color" content="#050505">
+  <meta name="keywords" content="muebles en Santa Fe, mueblería en Santa Fe, muebles de diseño, mesas de manicura, tocadores, mesas ratonas, DI LUCCA">
+  <meta name="geo.region" content="AR-S">
+  <meta name="geo.placename" content="Alvear, Santa Fe">
+  <meta name="geo.position" content="-33.032123;-60.642987">
+  <meta name="ICBM" content="-33.032123, -60.642987">
+
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DI LUCCA">
+  <meta property="og:title" content="DI LUCCA | Muebles de diseño en Santa Fe">
+  <meta property="og:description" content="Mesas de manicura, tocadores, mesas ratonas y complementos fabricados en Santa Fe. Atención directa y consulta por WhatsApp.">
+  <meta property="og:image" content="img/mesa7.jpg">
+  <meta property="og:image:alt" content="Mueble de diseño fabricado por DI LUCCA">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DI LUCCA | Muebles de diseño en Santa Fe">
+  <meta name="twitter:description" content="Muebles modernos fabricados en Santa Fe. Consultá disponibilidad, medidas y envío por WhatsApp.">
+  <meta name="twitter:image" content="img/mesa7.jpg">
+
+  <link rel="icon" href="img/logo-header.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo-header.png">
+  <link rel="preload" as="image" href="img/mesa7.jpg">
   <link rel="stylesheet" href="css/estilos-v2.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FurnitureStore",
+    "@id": "#dilucca",
+    "name": "DI LUCCA",
+    "description": "Fabricación de muebles de diseño en Santa Fe: mesas de manicura, tocadores, mesas ratonas y complementos.",
+    "image": [
+      "img/logo.png",
+      "img/mesa7.jpg"
+    ],
+    "logo": "img/logo.png",
+    "telephone": "+54 9 341 693 0606",
+    "priceRange": "$$",
+    "paymentAccepted": "Efectivo, transferencia",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Piedrabuena 2168",
+      "addressLocality": "Alvear",
+      "addressRegion": "Santa Fe",
+      "postalCode": "S2126",
+      "addressCountry": "AR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -33.032123,
+      "longitude": -60.642987
+    },
+    "areaServed": [
+      "Alvear",
+      "Rosario",
+      "Granadero Baigorria",
+      "Villa Gobernador Gálvez",
+      "Santa Fe"
+    ],
+    "sameAs": [
+      "https://instagram.com/muebles_dilucca"
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+54 9 341 693 0606",
+      "contactType": "customer service",
+      "availableLanguage": "Spanish"
+    }
+  }
+  </script>
 </head>
 
 <body>
@@ -17,20 +89,22 @@
 
     <div class="header-left">
 
-      <div class="menu-toggle" id="menuToggle">
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
         ☰
-      </div>
+      </button>
 
       <div class="logo">
-        <img src="img/logo-header.png" alt="Logo DI LUCCA">
+        <img src="img/logo-header.png" alt="Logo DI LUCCA" decoding="async">
       </div>
 
     </div>
 
     <nav class="menu" id="menu">
       <a href="#">Inicio</a>
+      <a href="#pagos">Pagos</a>
+      <a href="#amedida">A medida</a>
       <a href="#catalogo">Muebles</a>
-      <a href="#">Contacto</a>
+      <a href="#envios">Contacto</a>
     </nav>
 
   </header>
@@ -39,7 +113,7 @@
 
   <div class="promo-pill" id="promoPill">
     <p>
-      💳 Aceptamos Transferencias y 💵 Pago en efectivo — Siempre al precio publicado
+      Efectivo o transferencia - siempre al precio publicado
     </p>
     <span class="cerrar-promo" id="cerrarPromo">✕</span>
   </div>
@@ -50,16 +124,65 @@
 
     <div class="hero-contenido">
 
-      <img src="img/logo.png" class="hero-logo" alt="Logo DI LUCCA">
+      <img src="img/logo.png" class="hero-logo" alt="Logo DI LUCCA" decoding="async" fetchpriority="high">
 
-      <h1>Muebles de Diseño</h1>
-      <p>Calidad, elegancia y estilo para tu hogar</p>
+      <span class="hero-eyebrow">Fabricación propia en Santa Fe</span>
 
-      <a href="#catalogo" class="btn-ver">Ver Catálogo</a>
+      <h1>Muebles de diseño a medida</h1>
+      <p>Mesas de manicura, tocadores, mesas ratonas y complementos con terminaciones prolijas y atención directa.</p>
 
-      <!-- BOTÓN ENVÍO -->
-      <a href="#envios" class="btn-envio">Consultar Envío</a>
+      <div class="hero-botones">
+        <a href="#catalogo" class="btn-ver">Ver Catálogo</a>
+        <a href="https://wa.me/5493416930606" target="_blank" class="btn-whatsapp">Consultar por WhatsApp</a>
+      </div>
 
+      <div class="hero-datos" aria-label="Datos destacados">
+        <div>
+          <strong>Diseños</strong>
+          <span>modernos y funcionales</span>
+        </div>
+        <div>
+          <strong>Entrega</strong>
+          <span>con consulta de envío</span>
+        </div>
+        <div>
+          <strong>Compra</strong>
+          <span>directo de fábrica</span>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= FORMAS DE PAGO ================= -->
+
+  <section class="pagos" id="pagos">
+
+    <div class="pagos-header">
+      <span class="section-eyebrow">Formas de pago</span>
+      <h2>Pagá simple y al precio publicado</h2>
+      <p>Aceptamos efectivo y transferencia. Consultanos por disponibilidad, tiempos de fabricación y coordinación de entrega.</p>
+    </div>
+
+    <div class="pagos-grid">
+      <article class="pago-card">
+        <span>01</span>
+        <h3>Transferencia</h3>
+        <p>Podés abonar por transferencia bancaria, siempre respetando el precio publicado.</p>
+      </article>
+
+      <article class="pago-card">
+        <span>02</span>
+        <h3>Efectivo</h3>
+        <p>También aceptamos pago en efectivo para compras coordinadas directamente por WhatsApp.</p>
+      </article>
+
+      <article class="pago-card">
+        <span>03</span>
+        <h3>Venta directa</h3>
+        <p>Te confirmamos disponibilidad, medidas y entrega antes de avanzar con la compra.</p>
+      </article>
     </div>
 
   </section>
@@ -109,14 +232,42 @@
 
       <div class="nosotros-img">
 
-        <video autoplay muted loop playsinline class="video-nosotros">
-          <source src="img/video-taller.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="none" class="video-nosotros">
+          <source data-src="img/video-taller.mp4" type="video/mp4">
           Tu navegador no soporta video.
         </video>
-        <video autoplay muted loop playsinline class="video-nosotros">
-          <source src="img/video-taller1.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="none" class="video-nosotros">
+          <source data-src="img/video-taller1.mp4" type="video/mp4">
           Tu navegador no soporta video.
         </video>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= TRABAJOS A MEDIDA ================= -->
+
+  <section class="amedida" id="amedida">
+
+    <div class="amedida-container">
+
+      <div class="amedida-texto">
+        <span class="section-eyebrow">Trabajos a medida</span>
+        <h2>Adaptamos el mueble a tu espacio</h2>
+        <p>Si necesitás otra medida, distribución, color o detalle de terminación, escribinos y vemos la mejor opción para tu hogar, salón o espacio de trabajo.</p>
+
+        <div class="amedida-lista">
+          <span>Medidas personalizadas</span>
+          <span>Adaptación de colores y tiradores</span>
+          <span>Diseños para hogar, belleza y trabajo</span>
+        </div>
+
+        <a href="https://wa.me/5493416930606?text=Hola%2C%20quiero%20consultar%20por%20un%20mueble%20a%20medida." target="_blank" class="amedida-btn">Consultar trabajo a medida</a>
+      </div>
+
+      <div class="amedida-media">
+        <img src="img/mesa8.jpg" alt="Mesa de manicura personalizada de DI LUCCA" loading="lazy" decoding="async">
       </div>
 
     </div>
@@ -128,9 +279,15 @@
   <section class="catalogo" id="catalogo">
 
     <h2>Nuestros Muebles</h2>
+    <p class="catalogo-sub">Elegí una categoría y consultá disponibilidad por WhatsApp.</p>
+
+    <div class="buscador-catalogo">
+      <label for="buscarProducto">Buscar producto</label>
+      <input type="search" id="buscarProducto" placeholder="Buscar mesa, tocador, esmaltero...">
+    </div>
 
     <div class="filtros">
-      <button data-filtro="todos">Todos</button>
+      <button data-filtro="todos" class="activo">Todos</button>
       <button data-filtro="manicura">Manicura</button>
       <button data-filtro="mesas">Mesas</button>
       <button data-filtro="escritorios">Escritorios</button>
@@ -147,19 +304,24 @@
 
     <div class="modal-contenido">
 
-      <span class="cerrar">×</span>
+      <button class="cerrar" type="button" aria-label="Cerrar producto">×</button>
 
-      <img id="modalImg" alt="Producto">
+      <div class="modal-media">
+        <img id="modalImg" alt="Producto" decoding="async">
+      </div>
 
-      <h2 id="modalNombre"></h2>
+      <div class="modal-header-producto">
+        <span class="modal-estado" id="modalEstado"></span>
+        <h2 id="modalNombre"></h2>
+      </div>
 
-      <p><strong>Material:</strong> <span id="modalMaterial"></span></p>
-      <p><strong>Precio:</strong> <span id="modalPrecio"></span></p>
-      <p><strong>Medidas:</strong> <span id="modalMedidas"></span></p>
+      <div class="modal-datos">
+        <p><strong>Material</strong> <span id="modalMaterial"></span></p>
+        <p><strong>Precio</strong> <span id="modalPrecio"></span></p>
+        <p><strong>Medidas</strong> <span id="modalMedidas"></span></p>
+      </div>
 
-      <p id="modalDetalle"></p>
-
-      <div class="mini-galeria" id="miniGaleria"></div>
+      <p id="modalDetalle" class="modal-detalle"></p>
 
       <button id="btnConsultar">Consultar por WhatsApp</button>
 
@@ -171,38 +333,70 @@
 
   <div class="social-float">
 
-    <a href="https://wa.me/5493416930606" target="_blank" class="btn-wsp">
-      <img src="img/whatsapp.png" alt="WhatsApp">
+    <a href="https://wa.me/5493416930606" target="_blank" class="btn-wsp" aria-label="Abrir WhatsApp">
+      <img src="img/whatsapp.png" alt="WhatsApp" decoding="async">
     </a>
 
-    <a href="https://instagram.com/muebles_dilucca" target="_blank" class="btn-ig">
-      <img src="img/instagram.png" alt="Instagram">
+    <a href="https://instagram.com/muebles_dilucca" target="_blank" class="btn-ig" aria-label="Abrir Instagram">
+      <img src="img/instagram.png" alt="Instagram" decoding="async">
     </a>
 
   </div>
 
-  <!-- ================= ENVÍOS ================= -->
+  <!-- ================= ENVÍOS Y CONTACTO ================= -->
 
-  <div class="envios" id="envios">
+  <section class="contacto-envios" id="envios">
 
-    <h3>Consultar envío</h3>
+    <div class="contacto-header">
+      <span class="section-eyebrow">Envíos y contacto</span>
+      <h2>Coordiná tu compra de forma simple</h2>
+      <p>Calculá el envío desde Alvear o escribinos directo para consultar disponibilidad, tiempos y formas de pago.</p>
+    </div>
 
-    <input type="text" id="direccionCliente" placeholder="Ingresá tu dirección">
+    <div class="contacto-grid">
 
-    <button id="calcularEnvio">Calcular envío</button>
+      <div class="envios">
+        <span class="contacto-card-label">Calculadora</span>
+        <h3>Consultar envío</h3>
+        <p class="envios-ayuda">Ingresá tu dirección para estimar el costo de entrega.</p>
 
-    <p id="resultadoEnvio"></p>
+        <input type="text" id="direccionCliente" placeholder="Ingresá tu dirección">
 
-  </div>
-<div class="mapa">
-  <div id="mapaGoogle"></div>
+        <button id="calcularEnvio">Calcular envío</button>
 
-  <a href="https://www.google.com/maps?q=Piedrabuena+2168+Alvear+Santa+Fe" 
-     target="_blank" 
-     class="btn-mapa">
-    Cómo llegar
-  </a>
-</div>
+        <p id="resultadoEnvio"></p>
+      </div>
+
+      <div class="contacto-card">
+        <span class="contacto-card-label">Atención directa</span>
+        <h3>Hablemos por WhatsApp</h3>
+        <p>Respondemos consultas sobre medidas, disponibilidad, colores, señas y coordinación de entrega.</p>
+
+        <div class="contacto-actions">
+          <a href="https://wa.me/5493416930606" target="_blank" class="contacto-btn contacto-btn-wsp">WhatsApp</a>
+          <a href="https://instagram.com/muebles_dilucca" target="_blank" class="contacto-btn contacto-btn-ig">Instagram</a>
+        </div>
+
+        <div class="contacto-datos">
+          <span>Alvear, Santa Fe</span>
+          <span>Fabricación propia</span>
+          <span>Venta directa</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="mapa">
+      <div id="mapaGoogle"></div>
+
+      <a href="https://www.google.com/maps?q=Piedrabuena+2168+Alvear+Santa+Fe"
+         target="_blank"
+         class="btn-mapa">
+        Cómo llegar
+      </a>
+    </div>
+
+  </section>
   <!-- ================= FOOTER ================= -->
 
   <footer class="footer">
@@ -217,6 +411,8 @@
       <div class="footer-col">
         <h4>Navegación</h4>
         <a href="#">Inicio</a>
+        <a href="#pagos">Pagos</a>
+        <a href="#amedida">A medida</a>
         <a href="#catalogo">Muebles</a>
         <a href="#envios">Envíos</a>
       </div>
