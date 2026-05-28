@@ -176,6 +176,16 @@ nombre:"Nerina",
 mensaje:"La mesa me encantó.",
 ubicacion:"Rosario, Santa Fe"
 },
+{
+nombre:"Sa",
+mensaje:"Excelente calidad, la mesa con cajón es perfecta.",
+ubicacion:"Coronel Bogado, Santa Fe"
+},
+{
+nombre:"Nicolás",
+mensaje:"Hermosa y muy buena calidad.",
+ubicacion:"Rosario, Santa Fe"
+},
 ];
 
 // ================= RESEÑAS =================
