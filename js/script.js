@@ -122,6 +122,16 @@ detalle:"Cajonera con 4 cajones para organizar tus objetos de forma práctica y 
 imagenes:["img/caj1.jpg"],
 sinStock: true
 },
+{
+nombre:"Botiquín para baño",
+material:"Melamina MDF 18mm",
+categoria:"complementos",
+precio:"Proximamente",
+medidas:"45 x 12 x 60 cm",
+detalle:"Botiquín para baño espejado con estante interior para organizar tus productos de cuidado personal.",
+imagenes:["img/bot1.jpg"],
+sinStock: true
+},
 ];
 
 const reseñasData = [
