@@ -45,7 +45,7 @@ sinStock: false
 {
 nombre:"Mesa de Luz",
 material:"Melamina MDF 18mm",
-categoria:"mesas",
+categoria:"dormitorio",
 precio:"$80.000",
 medidas:"43 x 40 x 58 cm",
 detalle:"Mesa de luz robusta con patas regulables en altura y cajón de guardado.",
@@ -55,7 +55,7 @@ sinStock: false
 {
 nombre:"Juguetero Organizador",
 material:"Melamina MDF 18mm",
-categoria:"escritorios",
+categoria:"dormitorio",
 precio:"$160.000",
 medidas:"70 x 30 x 100 cm",
 detalle:"Organizador con 2 baúles móviles y tiradores personalizables para mantener todo ordenado.",
@@ -65,7 +65,7 @@ sinStock: true
 {
 nombre:"Tocador Hollywood",
 material:"Melamina MDF 18mm",
-categoria:"escritorios",
+categoria:"dormitorio",
 precio:"$400.000",
 medidas:"85 x 45 x 145 cm",
 detalle:"Tocador con doble cajón, guías telescópicas, tiradores de cristal, luces embutidas y comando minimalista para conectar accesorios.",
@@ -115,7 +115,7 @@ sinStock: true
 {
 nombre:"Cajonera",
 material:"Melamina MDF 18mm",
-categoria:"mesas",
+categoria:"dormitorio",
 precio:"$200.000",
 medidas:"43 x 40 x 80 cm",
 detalle:"Cajonera con 4 cajones para organizar tus objetos de forma práctica y ordenada.",
@@ -135,11 +135,21 @@ sinStock: true
 {
 nombre:"Barra desayunadora",
 material:"Melamina MDF 18mm",
-categoria:"complementos",
+categoria:"mesas",
 precio:"$250.000",
 medidas:"120 x 50 x 100 cm",
 detalle:"Barra desayunadora moderna en melamina blanca, con tapa superior de vidrio transparente. Cuenta con espacio abierto para uso tipo barra, estantes laterales para guardado y puerta lateral con manija tipo perilla diamante de cristal transparente. Diseño práctico, elegante y funcional, ideal para cocina, comedor o departamento.",
 imagenes:["img/bar1.jpg"],
+sinStock: true
+},
+{
+nombre:"Zapatero organizador",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"$130.000",
+medidas:"80 x 30 x 77 cm",
+detalle:"Zapatero organizador con múltiples compartimentos para mantener tus calzados ordenados y protegidos.",
+imagenes:["img/zap1.jpg"],
 sinStock: true
 },
 ];
