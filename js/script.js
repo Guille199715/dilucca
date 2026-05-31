@@ -152,6 +152,16 @@ detalle:"Zapatero organizador con múltiples compartimentos para mantener tus ca
 imagenes:["img/zap1.jpg"],
 sinStock: true
 },
+{
+nombre:"Mesa de manicura Luxury",
+material:"Melamina MDF 18mm",
+categoria:"manicura",
+precio:"$260.000",
+medidas: "110 x 40 x 80 cm",
+detalle:"Mesa de manicura con 5 cajones, guías telescópicas, tiradores de cristal y superficie de vidrio.",
+imagenes:["img/mesa9.jpg"],
+sinStock: true
+},
 ];
 
 const reseñasData = [
