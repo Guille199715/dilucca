@@ -162,6 +162,16 @@ detalle:"Mesa de manicura con 5 cajones, guías telescópicas, tiradores de cris
 imagenes:["img/mesa9.jpg"],
 sinStock: true
 },
+{
+nombre:"Apoyamanos para manicura",
+material:"Melamina MDF 18mm",
+categoria:"manicura",
+precio:"$15.000",
+medidas: "32 x 13 x 14 cm",
+detalle:"Apoyamanos ergonómico para manicura, con superficie acolchada y diseño ajustable para mayor comodidad durante el trabajo.",
+imagenes:["img/apo1.jpg"],
+sinStock: true
+},
 ];
 
 const reseñasData = [
