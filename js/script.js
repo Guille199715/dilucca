@@ -6,30 +6,50 @@ const productosData = [
 nombre:"Mesa de manicura estándar",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
-precio:"$90.000",
-medidas:"80 x 40 x 80 cm",
-detalle:"Mesa compacta para salón de belleza, con superficie de vidrio y diseño práctico para trabajar con comodidad.",
-imagenes:["img/mesa1.jpg","img/mesa1-2.jpg"],
+precio:"$85.000",
+medidas:"110 x 40 x 80 cm",
+detalle:"Diseño moderno y práctico para trabajar con comodidad, ideal para salón de belleza.",
+imagenes:["img/mesa11.jpg"],
 sinStock: false
 },
 {
-nombre:"Mesa de manicura restyling",
+nombre:"Mesa de manicura con cajón estándar",
+material:"Melamina MDF 18mm",
+categoria:"manicura",
+precio:"$114.000",
+medidas:"80 x 40 x 80 cm",
+detalle:"Mesa compacta para salón de belleza y diseño práctico para trabajar con comodidad.",
+imagenes:["img/mesa10.jpg"],
+sinStock: false
+},
+{
+nombre:"Mesa de manicura con cajón premium",
+material:"Melamina MDF 18mm",
+categoria:"manicura",
+precio:"$150.000",
+medidas:"110 x 40 x 80 cm",
+detalle:"Diseño moderno con cajón, guías telescópicas y tirador de cristal.",
+imagenes:["img/mesa2.jpg"],
+sinStock: false
+},
+{
+nombre:"Mesa de manicura restyling estándar",
+material:"Melamina MDF 18mm",
+categoria:"manicura",
+precio:"$70.000",
+medidas:"80 x 40 x 80 cm",
+detalle:"Versión renovada de la mesa estándar, ideal para salón de belleza y terminación moderna.",
+imagenes:["img/mesa12.jpg"],
+sinStock: false
+},
+{
+nombre:"Mesa de manicura restyling Premium",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
 precio:"$100.000",
 medidas:"80 x 40 x 80 cm",
 detalle:"Versión renovada de la mesa estándar, ideal para salón de belleza, con superficie de vidrio y terminación moderna.",
 imagenes:["img/mesa5.jpg","img/mesa5-2.jpg"],
-sinStock: false
-},
-{
-nombre:"Mesa de manicura premium",
-material:"Melamina MDF 18mm",
-categoria:"manicura",
-precio:"$150.000",
-medidas:"110 x 40 x 80 cm",
-detalle:"Diseño moderno con cajón, guías telescópicas y tirador de cristal.",
-imagenes:["img/mesa2.jpg","img/mesa2-2.jpg"],
 sinStock: false
 },
 {
@@ -91,6 +111,16 @@ medidas: "34 x 30 x 70 cm",
 detalle:"Auxiliar con 4 estantes y ruedas giratorias para mover herramientas y accesorios con facilidad.",
 imagenes:["img/aux1.jpg","img/aux1-2.jpg"],
 sinStock: true
+},
+{
+nombre:"Mesa auxiliar con cajón",
+material:"Melamina MDF 18mm",
+categoria:"complementos",
+precio:"$93.500",
+medidas: "43 x 40 x 80 cm",
+detalle:"Mesa auxiliar con cajón y estantes para mayor organización y almacenamiento de herramientas y accesorios.",
+imagenes:["img/aux2.jpg"],
+sinStock: false
 },
 {
 nombre:"Esmaltero",
@@ -165,7 +195,7 @@ sinStock: true
 {
 nombre:"Apoyamanos para manicura",
 material:"Melamina MDF 18mm",
-categoria:"manicura",
+categoria:"complementos",
 precio:"$15.000",
 medidas: "32 x 13 x 14 cm",
 detalle:"Apoyamanos ergonómico para manicura, con superficie acolchada y diseño ajustable para mayor comodidad durante el trabajo.",
@@ -716,28 +746,15 @@ const mapa = new google.maps.Map(mapaContenedor, {
   styles: [
   ]
 });
-const geocoder = new google.maps.Geocoder();
 
-geocoder.geocode(
-  { address: "Piedrabuena 2168, Alvear, Santa Fe, Argentina" },
-  (results, status) => {
-
-    if (status === "OK") {
-
-      mapa.setCenter(results[0].geometry.location);
-
-      new google.maps.Marker({
-        map: mapa,
-        position: results[0].geometry.location,
-        icon: {
-          url: "img/ubicacion.png",
-          scaledSize: new google.maps.Size(60, 60)
-        }
-      });
-
-    }
+new google.maps.Marker({
+  map: mapa,
+  position: ubicacion,
+  icon: {
+    url: "img/ubicacion.png",
+    scaledSize: new google.maps.Size(60, 60)
   }
-);
+});
 }
 
 // iniciar cuando carga
