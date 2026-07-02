@@ -173,6 +173,16 @@ imagenes:["img/bar1.jpg"],
 sinStock: true
 },
 {
+nombre:"Mostrador exhibidor con vitrina de vidrio", 
+material:"Melamina MDF 18mm",
+categoria:"mesas",
+precio:"$650.000",
+medidas:"180 x 45 x 110 cm",
+detalle:"Exibidora con vitrina de vidrio transparente, ideal para exhibir productos de manera elegante y segura. Cuenta con estantes internos.",
+imagenes:["img/exi1.jpg"],
+sinStock: true
+},
+{
 nombre:"Zapatero organizador",
 material:"Melamina MDF 18mm",
 categoria:"dormitorio",
