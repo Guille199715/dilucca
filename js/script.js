@@ -113,6 +113,16 @@ imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
 sinStock: true
 },
 {
+nombre:"Escritorio para notebook",
+material:"Melamina MDF 18mm",
+categoria:"escritorios",
+precio:"$60.000",
+medidas:"80 x 40 x 75 cm",
+detalle:"Escritorio compacto y funcional, ideal para trabajar con comodidad en espacios reducidos.",
+imagenes:["img/esc1.jpg"],
+sinStock: false
+},
+{
 nombre:"Mesa de manicura premium con auxiliar",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
