@@ -73,6 +73,26 @@ imagenes:["img/mesa4.jpg","img/mesa4-2.jpg"],
 sinStock: false
 },
 {
+nombre:"Mesa de Luz Flotante Premium",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"$50.000",
+medidas:"43 x 40 x 30 cm",
+detalle:"Mesa de luz flotante, robusta y moderna, con cajón de guardado.",
+imagenes:["img/mesa13.jpg"],
+sinStock: false
+},
+{
+nombre:"Mesa de Luz Flotante Estándar",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"$30.000",
+medidas:"43 x 40 x 30 cm",
+detalle:"Mesa de Luz flotante económica, firme y moderna.",
+imagenes:["img/mesa14.jpg"],
+sinStock: false
+},
+{
 nombre:"Juguetero Organizador",
 material:"Melamina MDF 18mm",
 categoria:"dormitorio",
