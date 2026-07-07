@@ -123,6 +123,16 @@ imagenes:["img/esc1.jpg"],
 sinStock: false
 },
 {
+nombre:"Escritorio para notebook Premium",
+material:"Melamina MDF 18mm",
+categoria:"escritorios",
+precio:"$95.000",
+medidas:"110 x 40 x 75 cm",
+detalle:"Escritorio premium con cajón y guías telescópicas, ideal para trabajar con comodidad y estilo.",
+imagenes:["img/esc2.jpg"],
+sinStock: false
+},
+{
 nombre:"Mesa de manicura premium con auxiliar",
 material:"Melamina MDF 18mm",
 categoria:"manicura",
