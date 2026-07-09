@@ -1,4 +1,5 @@
 let autocomplete = null;
+const GOOGLE_MAPS_API_KEY = (window.DILUCCA_GOOGLE_MAPS_API_KEY || "").trim();
 
 const productosData = [
 
@@ -180,6 +181,16 @@ precio:"$35.000",
 medidas:"83 x 8 x 60 cm",
 detalle:"Esmaltero ampliado con 4 estantes para organizar esmaltes y accesorios de belleza.",
 imagenes:["img/esm2.jpg"],
+sinStock: true
+},
+{
+nombre:"Esmaltero con puerta de vidrio",
+material:"Melamina MDF 18mm",
+categoria:"complementos",
+precio:"$65.000",
+medidas:"43 x 10 x 60 cm",
+detalle:"Esmaltero con puerta de vidrio transparente, ideal para organizar esmaltes y accesorios de belleza.",
+imagenes:["img/esm3.jpg"],
 sinStock: true
 },
 {
@@ -672,10 +683,13 @@ return;
 }
 
 // protección google
-if (typeof google === "undefined" || !google.maps) {
+if (!googleMapsDisponible() || !google.maps.DistanceMatrixService) {
+const mensaje = `Hola, quiero consultar el costo de envío para esta dirección:
+
+${destino}`;
+window.open("https://wa.me/5493416930606?text=" + encodeURIComponent(mensaje), "_blank");
 document.getElementById("resultadoEnvio").innerHTML =
-`<span class='resultado-error'>No pudimos cargar el cálculo automático.</span><br>
-<a class='resultado-link' href='https://wa.me/5493416930606' target='_blank'>Consultanos por WhatsApp</a>`;
+`<span>Te abrimos WhatsApp para consultar el envío.</span>`;
 return;
 }
 
@@ -737,9 +751,13 @@ document.getElementById("resultadoEnvio").innerHTML = `
 
 // ================= AUTOCOMPLETE =================
 
+function googleMapsDisponible(){
+return typeof google !== "undefined" && google.maps;
+}
+
 function iniciarAutocomplete(){
 
-if (typeof google === "undefined" || !google.maps || !google.maps.places) {
+if (!googleMapsDisponible() || !google.maps.places) {
 return;
 }
 
@@ -752,7 +770,6 @@ componentRestrictions: { country: "ar" }
 
 }
 
-window.addEventListener("load", iniciarAutocomplete);
 // seleccionar secciones automáticamente
 const elementos = document.querySelectorAll(
   "section:not(.catalogo):not(.pagos), .envios, .footer"
@@ -777,13 +794,15 @@ let mapaIniciado = false;
 
 function iniciarMapa(){
 
-if (mapaIniciado || typeof google === "undefined" || !google.maps) return;
+if (mapaIniciado || !googleMapsDisponible()) return;
 
 const mapaContenedor = document.getElementById("mapaGoogle");
 
 if (!mapaContenedor) return;
 
 mapaIniciado = true;
+mapaContenedor.removeAttribute("aria-hidden");
+mapaContenedor.closest(".mapa")?.classList.add("mapa-con-api");
 
 const ubicacion = {
   lat: -33.032123,
@@ -807,8 +826,6 @@ new google.maps.Marker({
 });
 }
 
-// iniciar cuando carga
-window.addEventListener("load", iniciarMapa);
 const mapaEl = document.getElementById("mapaGoogle");
 
 const observerMapa = new IntersectionObserver((entries)=>{
@@ -823,3 +840,31 @@ const observerMapa = new IntersectionObserver((entries)=>{
 if (mapaEl) {
 observerMapa.observe(mapaEl);
 }
+
+function cargarGoogleMapsApi(){
+if (!GOOGLE_MAPS_API_KEY) return;
+if (document.querySelector("script[data-google-maps-api]")) return;
+
+window.diluccaGoogleMapsReady = () => {
+  iniciarAutocomplete();
+  iniciarMapa();
+};
+
+window.gm_authFailure = () => {
+  mapaIniciado = false;
+  document.getElementById("mapaGoogle")?.closest(".mapa")?.classList.remove("mapa-con-api");
+};
+
+const script = document.createElement("script");
+script.dataset.googleMapsApi = "true";
+script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}&libraries=places&loading=async&callback=diluccaGoogleMapsReady`;
+script.async = true;
+script.defer = true;
+script.onerror = () => {
+  document.getElementById("mapaGoogle")?.closest(".mapa")?.classList.remove("mapa-con-api");
+};
+
+document.head.appendChild(script);
+}
+
+window.addEventListener("load", cargarGoogleMapsApi);
