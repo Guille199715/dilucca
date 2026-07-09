@@ -395,7 +395,15 @@
     </div>
 
     <div class="mapa">
-      <div id="mapaGoogle"></div>
+      <div id="mapaGoogle" class="mapa-api" aria-hidden="true"></div>
+      <iframe
+        id="mapaFallback"
+        class="mapa-iframe"
+        title="Ubicación de DI LUCCA en Google Maps"
+        src="https://www.google.com/maps?q=Piedrabuena%202168%2C%20Alvear%2C%20Santa%20Fe%2C%20Argentina&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
 
       <a href="https://www.google.com/maps?q=Piedrabuena+2168+Alvear+Santa+Fe"
          target="_blank"
@@ -451,7 +459,9 @@
 
   <!-- ================= SCRIPTS ================= -->
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPna6LC1qx6A0h4tgsjOowoWrpq2bkCns&libraries=places&loading=async"></script>
+  <script>
+    window.DILUCCA_GOOGLE_MAPS_API_KEY = "";
+  </script>
   <script src="js/script.js"></script>
 
 </body>
