@@ -1,6 +1,3 @@
-let autocomplete = null;
-const GOOGLE_MAPS_API_KEY = (window.DILUCCA_GOOGLE_MAPS_API_KEY || "").trim();
-
 const productosData = [
 
 {
@@ -333,69 +330,122 @@ ubicacion:"Rosario, Santa Fe"
 
 const contenedorReseñas = document.getElementById("reseñasContainer");
 
-reseñasData.forEach(r => {
+if(contenedorReseñas){
 
-const card = document.createElement("div");
-card.classList.add("reseña");
+let reseñaActiva = 0;
+let intervaloReseñas;
+
+function obtenerCantidadReseñas(){
+if(window.innerWidth <= 680) return 1;
+if(window.innerWidth <= 1024) return 3;
+return 5;
+}
+
+function obtenerReseñasVisibles(){
+const cantidad = obtenerCantidadReseñas();
+const visibles = [];
+
+for(let i = 0; i < cantidad; i++){
+const indice = (reseñaActiva + i) % reseñasData.length;
+visibles.push({
+...reseñasData[indice],
+destacada: cantidad > 1 && i === Math.floor(cantidad / 2)
+});
+}
+
+return visibles;
+}
+
+function pintarReseñas(){
+const fragment = document.createDocumentFragment();
+const reseñasVisibles = obtenerReseñasVisibles();
+
+contenedorReseñas.innerHTML = "";
+
+reseñasVisibles.forEach((r, index) => {
+const card = document.createElement("article");
+card.className = r.destacada ? "reseña reseña-destacada" : "reseña";
+card.style.setProperty("--delay", `${index * 80}ms`);
 
 card.innerHTML = `
-<h3>${r.nombre}</h3>
+<div class="reseña-estrellas" aria-label="5 estrellas">★★★★★</div>
 <p>"${r.mensaje}"</p>
-<span>${r.ubicacion}</span>
+<div>
+  <h3>${r.nombre}</h3>
+  <span>${r.ubicacion}</span>
+</div>
 `;
 
-contenedorReseñas.appendChild(card);
-
+fragment.appendChild(card);
 });
 
-let scrollPos = 0;
-let autoScrollActivo = true;
-let intervalo;
-let reanudarTimeout;
-
-// iniciar auto scroll
-function iniciarAutoScroll(){
-intervalo = setInterval(() => {
-
-if(!autoScrollActivo) return;
-
-scrollPos += 320;
-
-if(scrollPos >= contenedorReseñas.scrollWidth){
-scrollPos = 0;
+contenedorReseñas.appendChild(fragment);
 }
 
-contenedorReseñas.scrollTo({
-left: scrollPos,
-behavior: "smooth"
+function avanzarReseñas(){
+contenedorReseñas.classList.add("reseñas-saliendo");
+
+setTimeout(() => {
+reseñaActiva = (reseñaActiva + obtenerCantidadReseñas()) % reseñasData.length;
+pintarReseñas();
+contenedorReseñas.classList.remove("reseñas-saliendo");
+}, 360);
+}
+
+function iniciarCarruselReseñas(){
+clearInterval(intervaloReseñas);
+intervaloReseñas = setInterval(avanzarReseñas, 4200);
+}
+
+pintarReseñas();
+iniciarCarruselReseñas();
+
+contenedorReseñas.addEventListener("mouseenter", () => clearInterval(intervaloReseñas));
+contenedorReseñas.addEventListener("mouseleave", iniciarCarruselReseñas);
+contenedorReseñas.addEventListener("touchstart", () => clearInterval(intervaloReseñas), { passive:true });
+
+window.addEventListener("resize", () => {
+pintarReseñas();
+iniciarCarruselReseñas();
 });
 
-}, 3000);
 }
-
-// detener temporalmente
-function pausarAutoScroll(){
-autoScrollActivo = false;
-
-clearTimeout(reanudarTimeout);
-
-reanudarTimeout = setTimeout(() => {
-autoScrollActivo = true;
-}, 5000);
-}
-
-// detectar interacción
-contenedorReseñas.addEventListener("scroll", pausarAutoScroll);
-contenedorReseñas.addEventListener("touchstart", pausarAutoScroll);
-contenedorReseñas.addEventListener("mousedown", pausarAutoScroll);
-
-// iniciar
-iniciarAutoScroll();
 // ================= PRODUCTOS =================
 
 const contenedor = document.getElementById("productos");
 
-function cargarProductos(lista){
+if(contenedor){
+
+const btnVerMasProductos = document.getElementById("verMasProductos");
+const catalogoCuenta = document.getElementById("catalogoCuenta");
+let productosFiltradosActuales = productosData;
+let productosVisibles = 0;
+
+function obtenerTandaCatalogo(){
+return window.innerWidth <= 680 ? 6 : 8;
+}
+
+function actualizarControlesCatalogo(total, mostrados){
+if(!btnVerMasProductos || !catalogoCuenta) return;
+
+if(total === 0){
+catalogoCuenta.innerText = "";
+btnVerMasProductos.hidden = true;
+return;
+}
+
+catalogoCuenta.innerText = `Mostrando ${mostrados} de ${total}`;
+btnVerMasProductos.hidden = mostrados >= total;
+btnVerMasProductos.innerText = `Ver más productos (${total - mostrados})`;
+}
+
+function cargarProductos(lista, reiniciar = false){
+
+productosFiltradosActuales = lista;
+
+if(reiniciar || productosVisibles === 0){
+productosVisibles = obtenerTandaCatalogo();
+}
 
 contenedor.innerHTML = "";
 
@@ -406,12 +456,14 @@ contenedor.innerHTML = `
   <span>Probá con otra búsqueda o elegí otra categoría.</span>
 </div>
 `;
+actualizarControlesCatalogo(0, 0);
 return;
 }
 
 const fragment = document.createDocumentFragment();
+const productosAMostrar = lista.slice(0, productosVisibles);
 
-lista.forEach(producto=>{
+productosAMostrar.forEach(producto=>{
 
 const card = document.createElement("div");
 card.classList.add("producto");
@@ -446,9 +498,10 @@ fragment.appendChild(card);
 });
 
 contenedor.appendChild(fragment);
+actualizarControlesCatalogo(lista.length, Math.min(productosVisibles, lista.length));
 }
 
-cargarProductos(productosData);
+cargarProductos(productosData, true);
 
 // ================= FILTROS =================
 
@@ -483,7 +536,14 @@ const coincideBusqueda = !busqueda || textoProducto.includes(busqueda);
 return coincideCategoria && coincideBusqueda;
 });
 
-cargarProductos(filtrados);
+cargarProductos(filtrados, true);
+}
+
+if(btnVerMasProductos){
+btnVerMasProductos.addEventListener("click", () => {
+productosVisibles += obtenerTandaCatalogo();
+cargarProductos(productosFiltradosActuales);
+});
 }
 
 botonesFiltro.forEach(btn=>{
@@ -502,6 +562,8 @@ aplicarFiltros();
 
 buscarProducto.addEventListener("input", aplicarFiltros);
 
+}
+
 // ================= MODAL =================
 
 const modal = document.getElementById("modalProducto");
@@ -517,6 +579,8 @@ const modalDetalle = document.getElementById("modalDetalle");
 const btnConsultar = document.getElementById("btnConsultar");
 
 function abrirModal(producto){
+
+if(!modal) return;
 
 modal.style.display="flex";
 document.body.style.overflow = "hidden";
@@ -554,17 +618,23 @@ btnConsultar.innerText = producto.sinStock ? "Consultar disponibilidad por Whats
 
 // ================= CERRAR MODAL =================
 
-document.querySelector(".cerrar").onclick=()=>{
+const cerrarModal = document.querySelector(".cerrar");
+
+if(cerrarModal){
+cerrarModal.onclick=()=>{
 modal.style.display="none";
 document.body.style.overflow = "auto";
 };
+}
 
+if(modal){
 modal.addEventListener("click", (e) => {
 if(e.target === modal){
 modal.style.display = "none";
 document.body.style.overflow = "auto";
 }
 });
+}
 
 // ================= MENU MOBILE =================
 
@@ -625,9 +695,11 @@ cerrarMenu();
 const promo = document.getElementById("promoPill");
 const cerrarPromo = document.getElementById("cerrarPromo");
 
+if(promo && cerrarPromo){
 cerrarPromo.addEventListener("click", () => {
 promo.style.display = "none";
 });
+}
 
 // ================= VIDEOS DIFERIDOS =================
 
@@ -663,18 +735,12 @@ videosNosotros.forEach(cargarVideo);
 
 // ================= ENVÍOS =================
 
-const origen = "Piedrabuena 2168, S2126 Alvear, Santa Fe, Argentina";
+const calcularEnvio = document.getElementById("calcularEnvio");
 
-document.getElementById("calcularEnvio").addEventListener("click", () => {
+if(calcularEnvio){
+calcularEnvio.addEventListener("click", () => {
 
-let destino = document.getElementById("direccionCliente").value;
-
-if (autocomplete) {
-const place = autocomplete.getPlace();
-if(place && place.formatted_address){
-destino = place.formatted_address;
-}
-}
+const destino = document.getElementById("direccionCliente").value.trim();
 
 if(!destino){
 document.getElementById("resultadoEnvio").innerHTML =
@@ -682,92 +748,14 @@ document.getElementById("resultadoEnvio").innerHTML =
 return;
 }
 
-// protección google
-if (!googleMapsDisponible() || !google.maps.DistanceMatrixService) {
 const mensaje = `Hola, quiero consultar el costo de envío para esta dirección:
 
 ${destino}`;
 window.open("https://wa.me/5493416930606?text=" + encodeURIComponent(mensaje), "_blank");
 document.getElementById("resultadoEnvio").innerHTML =
 `<span>Te abrimos WhatsApp para consultar el envío.</span>`;
-return;
-}
-
-const service = new google.maps.DistanceMatrixService();
-
-service.getDistanceMatrix({
-origins: [origen],
-destinations: [destino],
-travelMode: 'DRIVING',
-}, (response, status) => {
-
-if (status !== "OK") {
-document.getElementById("resultadoEnvio").innerHTML =
-"<span class='resultado-error'>No pudimos calcular la distancia. Probá con otra dirección.</span>";
-return;
-}
-
-const data = response.rows[0].elements[0];
-
-if(data.status !== "OK"){
-document.getElementById("resultadoEnvio").innerHTML =
-"<span class='resultado-error'>No se pudo calcular el envío para esa dirección.</span>";
-return;
-}
-
-const distanciaKm = data.distance.value / 1000;
-
-let costo = 10000;
-
-if (distanciaKm <= 10) costo += 7000;
-else if (distanciaKm <= 20) costo += 14000;
-else if (distanciaKm <= 30) costo += 21000;
-else if (distanciaKm <= 40) costo += 28000;
-else if (distanciaKm <= 50) costo += 35000;
-else if (distanciaKm <= 60) costo += 42000;
-else if (distanciaKm <= 70) costo += 49000;
-else if (distanciaKm <= 80) costo += 56000;
-else {
-document.getElementById("resultadoEnvio").innerHTML = `
-<div class="resultado-box">
-<strong class="resultado-error">
-No realizamos envíos automáticos a esa distancia.<br>
-Escribinos por WhatsApp y lo vemos juntos.
-</strong>
-</div>`;
-return;
-}
-
-document.getElementById("resultadoEnvio").innerHTML = `
-<div class="resultado-box">
-<div class="fila" style="justify-content:center;">
-<strong class="precio">Envío estimado: $${costo}</strong>
-</div>
-</div>`;
 
 });
-
-});
-
-// ================= AUTOCOMPLETE =================
-
-function googleMapsDisponible(){
-return typeof google !== "undefined" && google.maps;
-}
-
-function iniciarAutocomplete(){
-
-if (!googleMapsDisponible() || !google.maps.places) {
-return;
-}
-
-const input = document.getElementById("direccionCliente");
-
-autocomplete = new google.maps.places.Autocomplete(input, {
-types: ["address"],
-componentRestrictions: { country: "ar" }
-});
-
 }
 
 // seleccionar secciones automáticamente
@@ -789,82 +777,3 @@ const observer = new IntersectionObserver((entries)=>{
 });
 
 elementos.forEach(el=>observer.observe(el));
-
-let mapaIniciado = false;
-
-function iniciarMapa(){
-
-if (mapaIniciado || !googleMapsDisponible()) return;
-
-const mapaContenedor = document.getElementById("mapaGoogle");
-
-if (!mapaContenedor) return;
-
-mapaIniciado = true;
-mapaContenedor.removeAttribute("aria-hidden");
-mapaContenedor.closest(".mapa")?.classList.add("mapa-con-api");
-
-const ubicacion = {
-  lat: -33.032123,
-  lng: -60.642987
-};
-
-const mapa = new google.maps.Map(mapaContenedor, {
-  zoom: 15,
-  center: ubicacion,
-  styles: [
-  ]
-});
-
-new google.maps.Marker({
-  map: mapa,
-  position: ubicacion,
-  icon: {
-    url: "img/ubicacion.png",
-    scaledSize: new google.maps.Size(60, 60)
-  }
-});
-}
-
-const mapaEl = document.getElementById("mapaGoogle");
-
-const observerMapa = new IntersectionObserver((entries)=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      iniciarMapa();
-      observerMapa.unobserve(entry.target);
-    }
-  });
-});
-
-if (mapaEl) {
-observerMapa.observe(mapaEl);
-}
-
-function cargarGoogleMapsApi(){
-if (!GOOGLE_MAPS_API_KEY) return;
-if (document.querySelector("script[data-google-maps-api]")) return;
-
-window.diluccaGoogleMapsReady = () => {
-  iniciarAutocomplete();
-  iniciarMapa();
-};
-
-window.gm_authFailure = () => {
-  mapaIniciado = false;
-  document.getElementById("mapaGoogle")?.closest(".mapa")?.classList.remove("mapa-con-api");
-};
-
-const script = document.createElement("script");
-script.dataset.googleMapsApi = "true";
-script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(GOOGLE_MAPS_API_KEY)}&libraries=places&loading=async&callback=diluccaGoogleMapsReady`;
-script.async = true;
-script.defer = true;
-script.onerror = () => {
-  document.getElementById("mapaGoogle")?.closest(".mapa")?.classList.remove("mapa-con-api");
-};
-
-document.head.appendChild(script);
-}
-
-window.addEventListener("load", cargarGoogleMapsApi);
