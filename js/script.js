@@ -211,6 +211,16 @@ imagenes:["img/bot1.jpg"],
 sinStock: true
 },
 {
+nombre:"Mueble alacena para baño",
+material:"Melamina MDF 18mm",
+categoria:"complementos",
+precio:"$60.000",
+medidas:"60 x 30 x 43 cm",
+detalle:"Mueble alacena para baño con puerta y estantes para organizar tus productos de cuidado personal.",
+imagenes:["img/alc1.jpg"],
+sinStock: true
+},
+{
 nombre:"Barra desayunadora",
 material:"Melamina MDF 18mm",
 categoria:"mesas",
