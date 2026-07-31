@@ -97,7 +97,17 @@ categoria:"dormitorio",
 precio:"$160.000",
 medidas:"70 x 30 x 100 cm",
 detalle:"Organizador con 2 baúles móviles y tiradores personalizables para mantener todo ordenado.",
-imagenes:["img/mesa6.jpg","img/mesa6-2.jpg"],
+imagenes:["img/jug1.jpg"],
+sinStock: true
+},
+{
+nombre:"Juguetero Organizador con baul",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"$160.000",
+medidas:"70 x 30 x 100 cm",
+detalle:"Organizador con 1 baul con tapa para guardar juguetes y para mantener todo ordenado.",
+imagenes:["img/jug2.jpg"],
 sinStock: true
 },
 {
@@ -268,6 +278,36 @@ precio:"$15.000",
 medidas: "32 x 13 x 14 cm",
 detalle:"Apoyamanos ergonómico para manicura, con superficie acolchada y diseño ajustable para mayor comodidad durante el trabajo.",
 imagenes:["img/apo1.jpg"],
+sinStock: true
+},
+{
+nombre:"Baul juguetero con ruedas",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"$80.000",
+medidas: "60 x 30 x 36 cm",
+detalle:"Baul juguetero con ruedas, ideal para almacenar y transportar juguetes de manera práctica y segura.",
+imagenes:["img/baul1.jpg"],
+sinStock: true
+},
+{
+nombre:"Escritorio para niños con sillita móvil",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"PROXIMAMENTE",
+medidas: "90 x 40 x 50 cm",
+detalle:"Escritorio para niños con sillita móvil, ideal para crear un espacio de trabajo y juego cómodo.",
+imagenes:["img/esc3.jpg"],
+sinStock: true
+},
+{
+nombre:"Escritorio para niñas con sillita móvil",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"PROXIMAMENTE",
+medidas: "90 x 40 x 50 cm",
+detalle:"Escritorio para niñas con sillita móvil, ideal para crear un espacio de trabajo y juego cómodo.",
+imagenes:["img/esc4.jpg"],
 sinStock: true
 },
 ];
