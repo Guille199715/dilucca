@@ -121,6 +121,16 @@ imagenes:["img/mesa7.jpg","img/mesa7-2.jpg","img/mesa7-3.jpg","img/mesa7-4.jpg"]
 sinStock: true
 },
 {
+nombre:"Tocador Hollywood Restyling",
+material:"Melamina MDF 18mm",
+categoria:"dormitorio",
+precio:"$350.000",
+medidas:"85 x 45 x 145 cm",
+detalle:"Tocador con doble cajón, guías telescópicas, tiradores de cristal y comando minimalista para conectar accesorios.",
+imagenes:["img/toc1.jpg"],
+sinStock: true
+},
+{
 nombre:"Escritorio para notebook",
 material:"Melamina MDF 18mm",
 categoria:"escritorios",
